@@ -1,6 +1,6 @@
 ﻿namespace SQL_FINAL_Kapoy_na_
 {
-    partial class StudentDash
+    partial class TeacherDash
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblName = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idinstruc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.course = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.student = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTeacherD = new System.Windows.Forms.Button();
             this.btnStudentD = new System.Windows.Forms.Button();
             this.btndashB = new System.Windows.Forms.Button();
@@ -38,49 +48,101 @@
             this.btnreport = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblName = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
             this.btnupdate = new System.Windows.Forms.Button();
             this.btnadd = new System.Windows.Forms.Button();
-            this.lblActstud = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvStudents = new System.Windows.Forms.DataGridView();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.picProfile = new System.Windows.Forms.PictureBox();
-            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picProfile)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblName
+            // txtSearch
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
-            this.lblName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.lblName.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblName.Location = new System.Drawing.Point(62, 140);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(54, 19);
-            this.lblName.TabIndex = 13;
-            this.lblName.Text = "label2";
+            this.txtSearch.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.txtSearch.Location = new System.Drawing.Point(594, 50);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(139, 25);
+            this.txtSearch.TabIndex = 13;
             // 
-            // panel3
+            // label1
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(40)))), ((int)(((byte)(62)))));
-            this.panel3.Controls.Add(this.btnTeacherD);
-            this.panel3.Controls.Add(this.btnStudentD);
-            this.panel3.Controls.Add(this.btndashB);
-            this.panel3.Controls.Add(this.btnsubject);
-            this.panel3.Controls.Add(this.btnlogs);
-            this.panel3.Controls.Add(this.btnreport);
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.panel1);
-            this.panel3.Location = new System.Drawing.Point(-3, -3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(181, 572);
-            this.panel3.TabIndex = 17;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(23, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(318, 38);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Teacher Dashboard";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idinstruc,
+            this.instructor,
+            this.gender,
+            this.email,
+            this.department,
+            this.course,
+            this.student,
+            this.grade,
+            this.status});
+            this.dataGridView1.Location = new System.Drawing.Point(2, 81);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(731, 413);
+            this.dataGridView1.TabIndex = 11;
+            // 
+            // idinstruc
+            // 
+            this.idinstruc.HeaderText = "ID ";
+            this.idinstruc.Name = "idinstruc";
+            // 
+            // instructor
+            // 
+            this.instructor.HeaderText = "INSTRUCTOR";
+            this.instructor.Name = "instructor";
+            // 
+            // gender
+            // 
+            this.gender.HeaderText = "GENDER";
+            this.gender.Name = "gender";
+            // 
+            // email
+            // 
+            this.email.HeaderText = "EMAIL";
+            this.email.Name = "email";
+            // 
+            // department
+            // 
+            this.department.HeaderText = "DEPARTMENT";
+            this.department.Name = "department";
+            // 
+            // course
+            // 
+            this.course.HeaderText = "COURSE";
+            this.course.Name = "course";
+            // 
+            // student
+            // 
+            this.student.HeaderText = "STUDENT";
+            this.student.Name = "student";
+            // 
+            // grade
+            // 
+            this.grade.HeaderText = "GRADE";
+            this.grade.Name = "grade";
+            // 
+            // status
+            // 
+            this.status.HeaderText = "STATUS";
+            this.status.Name = "status";
             // 
             // btnTeacherD
             // 
@@ -92,7 +154,7 @@
             this.btnTeacherD.Location = new System.Drawing.Point(3, 308);
             this.btnTeacherD.Name = "btnTeacherD";
             this.btnTeacherD.Size = new System.Drawing.Size(178, 48);
-            this.btnTeacherD.TabIndex = 22;
+            this.btnTeacherD.TabIndex = 25;
             this.btnTeacherD.Text = "TEACHER";
             this.btnTeacherD.UseVisualStyleBackColor = true;
             // 
@@ -106,7 +168,7 @@
             this.btnStudentD.Location = new System.Drawing.Point(3, 262);
             this.btnStudentD.Name = "btnStudentD";
             this.btnStudentD.Size = new System.Drawing.Size(178, 48);
-            this.btnStudentD.TabIndex = 21;
+            this.btnStudentD.TabIndex = 24;
             this.btnStudentD.Text = "STUDENT";
             this.btnStudentD.UseVisualStyleBackColor = true;
             // 
@@ -120,7 +182,7 @@
             this.btndashB.Location = new System.Drawing.Point(3, 204);
             this.btndashB.Name = "btndashB";
             this.btndashB.Size = new System.Drawing.Size(178, 48);
-            this.btndashB.TabIndex = 20;
+            this.btndashB.TabIndex = 23;
             this.btndashB.Text = "DASHBOARD";
             this.btndashB.UseVisualStyleBackColor = true;
             // 
@@ -131,7 +193,7 @@
             this.btnsubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnsubject.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnsubject.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnsubject.Location = new System.Drawing.Point(3, 361);
+            this.btnsubject.Location = new System.Drawing.Point(3, 360);
             this.btnsubject.Name = "btnsubject";
             this.btnsubject.Size = new System.Drawing.Size(178, 48);
             this.btnsubject.TabIndex = 19;
@@ -145,7 +207,7 @@
             this.btnlogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlogs.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnlogs.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnlogs.Location = new System.Drawing.Point(0, 462);
+            this.btnlogs.Location = new System.Drawing.Point(0, 459);
             this.btnlogs.Name = "btnlogs";
             this.btnlogs.Size = new System.Drawing.Size(181, 48);
             this.btnlogs.TabIndex = 7;
@@ -159,7 +221,7 @@
             this.btnreport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnreport.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnreport.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnreport.Location = new System.Drawing.Point(0, 412);
+            this.btnreport.Location = new System.Drawing.Point(0, 409);
             this.btnreport.Name = "btnreport";
             this.btnreport.Size = new System.Drawing.Size(181, 48);
             this.btnreport.TabIndex = 6;
@@ -190,13 +252,54 @@
             this.panel1.Size = new System.Drawing.Size(180, 198);
             this.panel1.TabIndex = 18;
             // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
+            this.lblName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.lblName.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblName.Location = new System.Drawing.Point(62, 140);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(54, 19);
+            this.lblName.TabIndex = 13;
+            this.lblName.Text = "label2";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(40)))), ((int)(((byte)(62)))));
+            this.panel3.Controls.Add(this.btnTeacherD);
+            this.panel3.Controls.Add(this.btnStudentD);
+            this.panel3.Controls.Add(this.btndashB);
+            this.panel3.Controls.Add(this.btnsubject);
+            this.panel3.Controls.Add(this.btnlogs);
+            this.panel3.Controls.Add(this.btnreport);
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.panel1);
+            this.panel3.Location = new System.Drawing.Point(-3, -3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(181, 572);
+            this.panel3.TabIndex = 18;
+            // 
+            // button8
+            // 
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(605, 507);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(128, 48);
+            this.button8.TabIndex = 10;
+            this.button8.Text = "DELETE";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
             // btnupdate
             // 
             this.btnupdate.FlatAppearance.BorderSize = 0;
             this.btnupdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnupdate.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnupdate.ForeColor = System.Drawing.Color.White;
-            this.btnupdate.Location = new System.Drawing.Point(320, 516);
+            this.btnupdate.Location = new System.Drawing.Point(326, 507);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.Size = new System.Drawing.Size(128, 48);
             this.btnupdate.TabIndex = 9;
@@ -209,82 +312,26 @@
             this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnadd.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnadd.ForeColor = System.Drawing.Color.White;
-            this.btnadd.Location = new System.Drawing.Point(30, 515);
+            this.btnadd.Location = new System.Drawing.Point(30, 507);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(128, 48);
             this.btnadd.TabIndex = 8;
             this.btnadd.Text = "ADD";
             this.btnadd.UseVisualStyleBackColor = true;
             // 
-            // lblActstud
-            // 
-            this.lblActstud.AutoSize = true;
-            this.lblActstud.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
-            this.lblActstud.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.lblActstud.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblActstud.Location = new System.Drawing.Point(26, 70);
-            this.lblActstud.Name = "lblActstud";
-            this.lblActstud.Size = new System.Drawing.Size(54, 19);
-            this.lblActstud.TabIndex = 14;
-            this.lblActstud.Text = "label2";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(583, 68);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(139, 25);
-            this.txtSearch.TabIndex = 13;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(23, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(311, 38);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Student Dashboard";
-            // 
-            // dgvStudents
-            // 
-            this.dgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudents.Location = new System.Drawing.Point(3, 99);
-            this.dgvStudents.Name = "dgvStudents";
-            this.dgvStudents.ReadOnly = true;
-            this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudents.Size = new System.Drawing.Size(720, 413);
-            this.dgvStudents.TabIndex = 11;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(583, 515);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(128, 48);
-            this.btnDelete.TabIndex = 10;
-            this.btnDelete.Text = "DELETE";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(40)))), ((int)(((byte)(62)))));
-            this.panel2.Controls.Add(this.lblActstud);
             this.panel2.Controls.Add(this.txtSearch);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.dgvStudents);
-            this.panel2.Controls.Add(this.btnDelete);
+            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.button8);
             this.panel2.Controls.Add(this.btnupdate);
             this.panel2.Controls.Add(this.btnadd);
             this.panel2.Location = new System.Drawing.Point(178, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(747, 567);
-            this.panel2.TabIndex = 16;
+            this.panel2.TabIndex = 17;
             // 
             // picProfile
             // 
@@ -295,7 +342,7 @@
             this.picProfile.TabIndex = 2;
             this.picProfile.TabStop = false;
             // 
-            // StudentDash
+            // TeacherDash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -303,13 +350,13 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "StudentDash";
-            this.Text = "StudentDash";
-            this.Load += new System.EventHandler(this.StudentDash_Load);
-            this.panel3.ResumeLayout(false);
+            this.Name = "TeacherDash";
+            this.Text = "TeacherDash";
+            this.Load += new System.EventHandler(this.TeacherDash_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picProfile)).EndInit();
@@ -319,9 +366,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.PictureBox picProfile;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idinstruc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn instructor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn department;
+        private System.Windows.Forms.DataGridViewTextBoxColumn course;
+        private System.Windows.Forms.DataGridViewTextBoxColumn student;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.Button btnTeacherD;
         private System.Windows.Forms.Button btnStudentD;
         private System.Windows.Forms.Button btndashB;
@@ -330,13 +387,11 @@
         private System.Windows.Forms.Button btnreport;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button btnupdate;
         private System.Windows.Forms.Button btnadd;
-        private System.Windows.Forms.Label lblActstud;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvStudents;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Panel panel2;
     }
 }
