@@ -371,6 +371,7 @@
             this.Profilepic.Location = new System.Drawing.Point(547, 390);
             this.Profilepic.Name = "Profilepic";
             this.Profilepic.Size = new System.Drawing.Size(168, 84);
+            this.Profilepic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Profilepic.TabIndex = 84;
             this.Profilepic.TabStop = false;
             // 

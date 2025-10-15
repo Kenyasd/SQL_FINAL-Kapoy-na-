@@ -43,7 +43,7 @@ namespace SQL_FINAL_Kapoy_na_
                 try
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("sp_RegisterAdmin", con);
+                    SqlCommand cmd = new SqlCommand("F_Register", con);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@FirstName", txtFirstN.Text);
