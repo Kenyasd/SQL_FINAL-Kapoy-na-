@@ -27,7 +27,7 @@ CREATE PROCEDURE F_Register
     @Email NVARCHAR(100),
     @Username NVARCHAR(50),
     @Password NVARCHAR(100),
-    @ProfilePic VARBINARY(MAX)
+    @ProfilePic NVARCHAR(255)
 AS
 BEGIN
     IF EXISTS (SELECT 1 FROM Admins WHERE Username = @Username)

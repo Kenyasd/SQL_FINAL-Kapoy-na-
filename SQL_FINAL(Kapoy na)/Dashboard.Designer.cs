@@ -42,9 +42,10 @@
             this.btnreport = new System.Windows.Forms.Button();
             this.btnlogs = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblName = new System.Windows.Forms.Label();
+            this.lblName1 = new System.Windows.Forms.Label();
             this.Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.picProfile = new System.Windows.Forms.PictureBox();
+            this.lblName = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -193,22 +194,23 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
             this.panel3.Controls.Add(this.lblName);
+            this.panel3.Controls.Add(this.lblName1);
             this.panel3.Location = new System.Drawing.Point(1, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(180, 198);
             this.panel3.TabIndex = 15;
             // 
-            // lblName
+            // lblName1
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
-            this.lblName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblName.Location = new System.Drawing.Point(63, 142);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(54, 19);
-            this.lblName.TabIndex = 13;
-            this.lblName.Text = "label2";
+            this.lblName1.AutoSize = true;
+            this.lblName1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
+            this.lblName1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName1.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblName1.Location = new System.Drawing.Point(45, 118);
+            this.lblName1.Name = "lblName1";
+            this.lblName1.Size = new System.Drawing.Size(93, 19);
+            this.lblName1.TabIndex = 13;
+            this.lblName1.Text = "WELCOME";
             // 
             // Chart
             // 
@@ -235,6 +237,18 @@
             this.picProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picProfile.TabIndex = 2;
             this.picProfile.TabStop = false;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
+            this.lblName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblName.Location = new System.Drawing.Point(37, 142);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(23, 18);
+            this.lblName.TabIndex = 14;
+            this.lblName.Text = "W";
             // 
             // Dashboard
             // 
@@ -273,7 +287,8 @@
         private System.Windows.Forms.Button btnlogs;
         private System.Windows.Forms.PictureBox picProfile;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblName1;
         private System.Windows.Forms.DataVisualization.Charting.Chart Chart;
+        private System.Windows.Forms.Label lblName;
     }
 }

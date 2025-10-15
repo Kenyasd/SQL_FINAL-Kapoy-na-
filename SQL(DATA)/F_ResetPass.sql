@@ -20,21 +20,22 @@ GO
 -- =============================================
 CREATE PROCEDURE F_ResetPass
     @Username NVARCHAR(50),
-    @Email NVARCHAR(100),
     @NewPassword NVARCHAR(100)
 AS
 BEGIN
-    IF EXISTS (SELECT 1 FROM Admins WHERE Username = @Username AND Email = @Email)
+    SET NOCOUNT ON;
+
+    IF EXISTS (SELECT 1 FROM Admins WHERE Username = @Username)
     BEGIN
         UPDATE Admins
         SET [Password] = @NewPassword
-        WHERE Username = @Username AND Email = @Email;
+        WHERE Username = @Username;
 
         PRINT 'Password updated successfully!';
     END
     ELSE
     BEGIN
-        RAISERROR('Invalid username or email. Please try again.', 16, 1);
+        RAISERROR('Invalid username. Please try again.', 16, 1);
     END
 END
 GO

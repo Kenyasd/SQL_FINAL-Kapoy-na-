@@ -1,9 +1,7 @@
-CREATE DATABASE FINAL_DB;
-GO
+﻿CREATE DATABASE FINAL_DB;
 USE FINAL_DB;
-GO
 
--- 1?? Create the Admin table
+-- 1️⃣ Create the Admin table
 CREATE TABLE Admins (
     AdminID INT IDENTITY(1,1) PRIMARY KEY,
     FirstName NVARCHAR(50),
@@ -16,3 +14,4 @@ CREATE TABLE Admins (
     [Password] NVARCHAR(100) NOT NULL,
     ProfilePic NVARCHAR(200) NULL
 );
+Drop Procedure F_ResetPass

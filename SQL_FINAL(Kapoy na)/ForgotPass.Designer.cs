@@ -82,6 +82,7 @@
             this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPass.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtPass.HideSelection = false;
             this.txtPass.Location = new System.Drawing.Point(110, 289);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';

@@ -25,7 +25,7 @@ namespace SQL_FINAL_Kapoy_na_
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            lblName.Text = $"Welcome, {firstName} {lastName}!";
+            lblName.Text = $"{firstName} {lastName}";
 
             if (!string.IsNullOrEmpty(profilePath) && File.Exists(profilePath))
             {
