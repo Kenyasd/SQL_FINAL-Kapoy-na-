@@ -203,7 +203,7 @@
             this.btnupdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnupdate.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnupdate.ForeColor = System.Drawing.Color.White;
-            this.btnupdate.Location = new System.Drawing.Point(320, 516);
+            this.btnupdate.Location = new System.Drawing.Point(318, 513);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.Size = new System.Drawing.Size(128, 48);
             this.btnupdate.TabIndex = 9;
@@ -217,7 +217,7 @@
             this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnadd.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnadd.ForeColor = System.Drawing.Color.White;
-            this.btnadd.Location = new System.Drawing.Point(30, 515);
+            this.btnadd.Location = new System.Drawing.Point(9, 515);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(128, 48);
             this.btnadd.TabIndex = 8;
@@ -240,7 +240,7 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(583, 68);
+            this.txtSearch.Location = new System.Drawing.Point(590, 69);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(139, 25);
             this.txtSearch.TabIndex = 13;
@@ -267,7 +267,7 @@
             this.dgvStudents.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvStudents.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudents.Location = new System.Drawing.Point(3, 99);
+            this.dgvStudents.Location = new System.Drawing.Point(9, 101);
             this.dgvStudents.Margin = new System.Windows.Forms.Padding(10);
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.ReadOnly = true;
@@ -283,7 +283,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(583, 515);
+            this.btnDelete.Location = new System.Drawing.Point(601, 514);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(128, 48);
             this.btnDelete.TabIndex = 10;
