@@ -161,5 +161,12 @@ namespace SQL_FINAL_Kapoy_na_
             //    lblActstud.Text = $"Active Students: {count}";
             //}
         }
+
+        private void btndashB_Click(object sender, EventArgs e)
+        {
+            Dashboard dash = new Dashboard(firstName, lastName, profilePath);
+            dash.Show();
+            this.Hide();
+        }
     }
 }
