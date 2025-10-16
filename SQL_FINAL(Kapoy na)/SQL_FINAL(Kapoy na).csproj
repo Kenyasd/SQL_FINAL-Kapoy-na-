@@ -115,6 +115,12 @@
     <Compile Include="TeacherDash.Designer.cs">
       <DependentUpon>TeacherDash.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateS.Designer.cs">
+      <DependentUpon>UpdateS.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddS.resx">
       <DependentUpon>AddS.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherDash.resx">
       <DependentUpon>TeacherDash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateS.resx">
+      <DependentUpon>UpdateS.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
