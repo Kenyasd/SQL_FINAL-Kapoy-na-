@@ -18,13 +18,11 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE F_AllStudents
+CREATE PROCEDURE F_CountActS
 AS
 BEGIN
- SET NOCOUNT ON;
-    SELECT StudentID, FirstName, LastName, Gender, Course, Department, TermLevel, Active
+    SELECT COUNT(*) 
     FROM Students
-    WHERE Active = 1 
-    ORDER BY StudentID DESC;
+    WHERE Active = 1; 
 END
 GO

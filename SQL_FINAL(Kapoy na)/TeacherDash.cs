@@ -14,21 +14,25 @@ namespace SQL_FINAL_Kapoy_na_
     public partial class TeacherDash : Form
     {
 
-        string firstName = "";
-        string lastName = "";
-        string profilePath = "";
+       
 
-        public TeacherDash(string fname, string lname, string photoPath)
+        public TeacherDash()
         {
-            InitializeComponent();
-            firstName = fname;
-            lastName = lname;
-            profilePath = photoPath;
+            InitializeComponent();          
         }
 
         private void TeacherDash_Load(object sender, EventArgs e)
         {
+            lblName.Text = $"{UserSession.FirstName} {UserSession.LastName}";
 
+            if (!string.IsNullOrEmpty(UserSession.ProfilePath) && File.Exists(UserSession.ProfilePath))
+            {
+                picProfile.Image = new Bitmap(UserSession.ProfilePath);
+            }
+            else
+            {
+                picProfile.Image = null; // or a default picture
+            }
         }
     }
 }

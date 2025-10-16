@@ -12,12 +12,14 @@ using System.Windows.Forms;
 namespace SQL_FINAL_Kapoy_na_
 {
     public partial class Dashboard : Form
-    {
-
-        string firstName, lastName, profilePath;
+    {     
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            UserSession.FirstName = null;
+            UserSession.LastName = null;
+            UserSession.ProfilePath = null;
+
             LOGIN login = new LOGIN();
             login.Show();
             this.Hide();
@@ -26,37 +28,41 @@ namespace SQL_FINAL_Kapoy_na_
         private void btnstudentD_Click(object sender, EventArgs e)
         {
             this.Hide();
-            StudentDash studentDash = new StudentDash(firstName, lastName, profilePath);
+            StudentDash studentDash = new StudentDash();
             studentDash.Show();
         }
 
         private void btnteacherD_Click(object sender, EventArgs e)
         {
             this.Hide();
-            TeacherDash teacherDash = new TeacherDash(firstName, lastName, profilePath);
+            TeacherDash teacherDash = new TeacherDash();
             teacherDash.Show();
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            lblName.Text = $"{firstName} {lastName}";
+            lblName.Text = $"{UserSession.FirstName} {UserSession.LastName}";
 
-            if (!string.IsNullOrEmpty(profilePath) && File.Exists(profilePath))
+            if (!string.IsNullOrEmpty(UserSession.ProfilePath) && File.Exists(UserSession.ProfilePath))
             {
-                picProfile.Image = new Bitmap(profilePath);
+                picProfile.Image = new Bitmap(UserSession.ProfilePath);
             }
             else
             {
-                picProfile.Image = picProfile.Image = null; 
+                picProfile.Image = null; // or a default picture
             }
         }
 
-        public Dashboard(string fname, string lname, string photoPath)
+        public Dashboard()
         {
             InitializeComponent();
-            firstName = fname;
-            lastName = lname;
-            profilePath = photoPath;
+        }
+
+        private void btndashboard_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+            this.Hide();
         }
     }
 }

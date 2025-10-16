@@ -36,7 +36,7 @@ CREATE TABLE Teachers (
     FirstName NVARCHAR(50),
     LastName NVARCHAR(50),
     Gender NVARCHAR(10),
-    Department NVARCHAR(100),   -- NEW COLUMN
+    Department NVARCHAR(100),   
     Subject NVARCHAR(100),
     IsActive BIT DEFAULT 1,
     DateCreated DATETIME DEFAULT GETDATE()
@@ -47,3 +47,5 @@ CREATE TABLE Logs (
     Description NVARCHAR(255),
     DateLogged DATETIME DEFAULT GETDATE()
 );
+
+EXEC sp_rename 'Students.IsActive', 'Active', 'COLUMN';

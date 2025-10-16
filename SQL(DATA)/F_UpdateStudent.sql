@@ -35,7 +35,8 @@ CREATE PROCEDURE F_UpdateS
 AS
 BEGIN
     UPDATE Students
-    SET FirstName = @FirstName,
+    SET 
+        FirstName = @FirstName,
         LastName = @LastName,
         Gender = @Gender,
         Age = @Age,

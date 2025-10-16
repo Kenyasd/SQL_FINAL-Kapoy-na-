@@ -201,7 +201,7 @@
             this.panel2.Controls.Add(this.txtSearch);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(178, 0);
+            this.panel2.Location = new System.Drawing.Point(178, 13);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(747, 567);
             this.panel2.TabIndex = 19;
@@ -250,6 +250,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Reports";
             this.Text = "Reports";
+            this.Load += new System.EventHandler(this.Reports_Load);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

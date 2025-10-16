@@ -14,35 +14,24 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class StudentDash : Form
     {
-        string firstName="";
-        string lastName="";
-        string  profilePath = "";
         public StudentDash()
         {
             InitializeComponent();
-        }
-
-        public StudentDash(string fname, string lname, string photoPath)
-        {
-            InitializeComponent();
-            firstName = fname;
-            lastName = lname;
-            profilePath = photoPath;
-        }
+        }      
 
         string connectionString = @"Data Source=DESKTOP-IBHAJPM\SQLEXPRESS;Initial Catalog=FINAL_DB;Integrated Security=True";
 
         private void StudentDash_Load(object sender, EventArgs e)
         {
-            lblName.Text = $"{firstName} {lastName}";
+            lblName.Text = $"{UserSession.FirstName} {UserSession.LastName}";
 
-            if (!string.IsNullOrEmpty(profilePath) && File.Exists(profilePath))
+            if (!string.IsNullOrEmpty(UserSession.ProfilePath) && File.Exists(UserSession.ProfilePath))
             {
-                picProfile.Image = new Bitmap(profilePath);
+                picProfile.Image = new Bitmap(UserSession.ProfilePath);
             }
             else
             {
-                picProfile.Image = picProfile.Image = null;
+                picProfile.Image = null; 
             }
             LoadStudents();
             CountStudents();
@@ -68,8 +57,8 @@ namespace SQL_FINAL_Kapoy_na_
 
             int studentID = Convert.ToInt32(dgvStudents.SelectedRows[0].Cells["StudentID"].Value);
 
-           // UpdateS update = new UpdateS(studentID);
-           // update.ShowDialog();
+            UpdateS update = new UpdateS(studentID);
+            update.ShowDialog();
             LoadStudents();
         }
 
@@ -132,9 +121,22 @@ namespace SQL_FINAL_Kapoy_na_
 
         private void dgvStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && dgvStudents.Columns[e.ColumnIndex].Name == "Active")
             {
-                dgvStudents.Rows[e.RowIndex].Selected = true;
+                int studentID = Convert.ToInt32(dgvStudents.Rows[e.RowIndex].Cells["StudentID"].Value);
+                bool newStatus = Convert.ToBoolean(dgvStudents.Rows[e.RowIndex].Cells["IsActive"].Value);
+
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("F_ActiveStatus", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StudentID", studentID);
+                    cmd.Parameters.AddWithValue("@Active", newStatus);
+                    cmd.ExecuteNonQuery();
+                }
+
+                AddLog("UPDATE", $"Set student ID {studentID} active status to {newStatus}");
             }
         }       
 
@@ -149,35 +151,66 @@ namespace SQL_FINAL_Kapoy_na_
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dgvStudents.DataSource = dt;
+                dgvStudents.Columns["Active"].HeaderText = "Active";
+                dgvStudents.Columns["Active"].ReadOnly = false;
             }
         }
         private void CountStudents()
         {
-            //using (SqlConnection con = new SqlConnection(connectionString))
-            //{
-            //    con.Open();
-            //    SqlCommand cmd = new SqlCommand("F_CountActS", con);
-            //    cmd.CommandType = CommandType.StoredProcedure;
-            //    int count = (int)cmd.ExecuteScalar();
-            //    lblActstud.Text = $"Active Students: {count}";
-            //}
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("F_CountActS", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                int count = (int)cmd.ExecuteScalar();
+                lblActstud.Text = $"Active Students: {count}";
+            }
         }
 
         private void btndashB_Click(object sender, EventArgs e)
         {
-            Dashboard dash = new Dashboard(firstName, lastName, profilePath);
+            Dashboard dash = new Dashboard();
             dash.Show();
             this.Hide();
         }
 
         private void btnStudentD_Click(object sender, EventArgs e)
         {
-
+            StudentDash studentDash = new StudentDash();
+            studentDash.Show();
+            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            UserSession.FirstName = null;
+            UserSession.LastName = null;
+            UserSession.ProfilePath = null;
 
+            LOGIN login = new LOGIN();
+            login.Show();
+            this.Hide();
+        }
+
+        private void btnTeacherD_Click(object sender, EventArgs e)
+        {
+            TeacherDash teacherDash = new TeacherDash();
+            teacherDash.Show();
+            this.Hide();
+        }
+
+        private void btnreport_Click(object sender, EventArgs e)
+        {
+            Reports reports = new Reports();
+            reports.Show();
+            this.Hide();
+        }
+
+        private void btnlogs_Click(object sender, EventArgs e)
+        {
+            LOGS logs = new LOGS();
+            logs.Show();
+            this.Hide();
         }
     }
 }

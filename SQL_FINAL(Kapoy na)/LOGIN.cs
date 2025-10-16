@@ -44,17 +44,21 @@ namespace SQL_FINAL_Kapoy_na_
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
-                    // 2️⃣ Check if admin exists
+                    // Check if admin exists
                     if (dt.Rows.Count > 0)
                     {
                         string fname = dt.Rows[0]["FirstName"].ToString();
                         string lname = dt.Rows[0]["LastName"].ToString();
                         string photoPath = dt.Rows[0]["ProfilePic"].ToString();
 
+                        UserSession.FirstName = fname;
+                        UserSession.LastName = lname;
+                        UserSession.ProfilePath = photoPath;
+
                         MessageBox.Show("Welcome, " + fname + "!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Show Dashboard
-                        Dashboard dashboard = new Dashboard(fname, lname, photoPath);
+                        Dashboard dashboard = new Dashboard();
                         dashboard.Show();
                         this.Hide();
                     }

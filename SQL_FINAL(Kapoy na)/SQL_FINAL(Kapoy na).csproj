@@ -121,6 +121,7 @@
     <Compile Include="UpdateS.Designer.cs">
       <DependentUpon>UpdateS.cs</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <EmbeddedResource Include="AddS.resx">
       <DependentUpon>AddS.cs</DependentUpon>
     </EmbeddedResource>

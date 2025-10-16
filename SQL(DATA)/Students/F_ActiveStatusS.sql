@@ -18,13 +18,13 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE F_AllStudents
+CREATE PROCEDURE F_ActiveStatus
+    @StudentID INT,
+    @Active BIT
 AS
 BEGIN
- SET NOCOUNT ON;
-    SELECT StudentID, FirstName, LastName, Gender, Course, Department, TermLevel, Active
-    FROM Students
-    WHERE Active = 1 
-    ORDER BY StudentID DESC;
+    UPDATE Students
+    SET Active = @Active
+    WHERE StudentID = @StudentID;
 END
 GO

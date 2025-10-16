@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace SQL_FINAL_Kapoy_na_
 {
+    
     public partial class UpdateS : Form
     {
         string connectionString = @"Data Source=DESKTOP-IBHAJPM\SQLEXPRESS;Initial Catalog=FINAL_DB;Integrated Security=True";
         int studentID;
-        
         public UpdateS(int id)
         {
             InitializeComponent();
@@ -26,6 +26,7 @@ namespace SQL_FINAL_Kapoy_na_
         { 
        
             LoadStudentData();
+
         }
 
         private void LoadStudentData()
@@ -56,6 +57,7 @@ namespace SQL_FINAL_Kapoy_na_
                     else if (gender == "Female") rdbFemale.Checked = true;
                 }
                 con.Close();
+
             }
         }
         private void btnSave_Click(object sender, EventArgs e)
@@ -92,6 +94,8 @@ namespace SQL_FINAL_Kapoy_na_
 
         private void lblBack_Click(object sender, EventArgs e)
         {
+            StudentDash studentDash = new StudentDash();
+            studentDash.Show();
             this.Close();
         }
     }
