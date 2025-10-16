@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,7 +20,16 @@ namespace SQL_FINAL_Kapoy_na_
 
         private void Subjects_Load(object sender, EventArgs e)
         {
+            lblName.Text = $"{UserSession.FirstName} {UserSession.LastName}";
 
+            if (!string.IsNullOrEmpty(UserSession.ProfilePath) && File.Exists(UserSession.ProfilePath))
+            {
+                picProfile.Image = new Bitmap(UserSession.ProfilePath);
+            }
+            else
+            {
+                picProfile.Image = null; 
+            }
         }
 
         private void btndashB_Click(object sender, EventArgs e)

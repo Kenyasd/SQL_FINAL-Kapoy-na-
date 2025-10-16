@@ -110,7 +110,7 @@ namespace SQL_FINAL_Kapoy_na_
                 con.Open();
                 SqlCommand cmd = new SqlCommand("F_SearchS", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Filter", txtSearch.Text);
+                cmd.Parameters.AddWithValue("@Keyword", txtSearch.Text);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -124,7 +124,7 @@ namespace SQL_FINAL_Kapoy_na_
             if (e.RowIndex >= 0 && dgvStudents.Columns[e.ColumnIndex].Name == "Active")
             {
                 int studentID = Convert.ToInt32(dgvStudents.Rows[e.RowIndex].Cells["StudentID"].Value);
-                bool newStatus = Convert.ToBoolean(dgvStudents.Rows[e.RowIndex].Cells["IsActive"].Value);
+                bool newStatus = Convert.ToBoolean(dgvStudents.Rows[e.RowIndex].Cells["Active"].Value);
 
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {

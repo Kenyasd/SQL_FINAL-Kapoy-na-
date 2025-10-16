@@ -206,11 +206,11 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
-            this.lblName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.lblName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblName.Location = new System.Drawing.Point(62, 140);
+            this.lblName.Location = new System.Drawing.Point(44, 142);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(54, 19);
+            this.lblName.Size = new System.Drawing.Size(50, 18);
             this.lblName.TabIndex = 13;
             this.lblName.Text = "label2";
             // 
@@ -289,6 +289,7 @@
             this.picProfile.Location = new System.Drawing.Point(26, 21);
             this.picProfile.Name = "picProfile";
             this.picProfile.Size = new System.Drawing.Size(128, 76);
+            this.picProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picProfile.TabIndex = 2;
             this.picProfile.TabStop = false;
             // 

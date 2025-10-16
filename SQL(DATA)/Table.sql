@@ -47,5 +47,6 @@ CREATE TABLE Logs (
     Description NVARCHAR(255),
     DateLogged DATETIME DEFAULT GETDATE()
 );
-
+Drop Procedure F_CountActS;
+DROP PROCEDURE IF EXISTS F_SearchS;
 EXEC sp_rename 'Students.IsActive', 'Active', 'COLUMN';

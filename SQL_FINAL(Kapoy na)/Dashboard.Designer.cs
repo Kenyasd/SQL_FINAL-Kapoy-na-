@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ActChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.UsersChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -49,7 +49,6 @@
             this.picProfile = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
-            this.lblName1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsersChart)).BeginInit();
@@ -73,19 +72,19 @@
             // 
             this.ActChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
             this.ActChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
-            chartArea9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
-            chartArea9.Name = "ChartArea1";
-            this.ActChart.ChartAreas.Add(chartArea9);
-            legend9.BackColor = System.Drawing.Color.SlateGray;
-            legend9.Name = "Legend1";
-            this.ActChart.Legends.Add(legend9);
+            chartArea15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
+            chartArea15.Name = "ChartArea1";
+            this.ActChart.ChartAreas.Add(chartArea15);
+            legend15.BackColor = System.Drawing.Color.SlateGray;
+            legend15.Name = "Legend1";
+            this.ActChart.Legends.Add(legend15);
             this.ActChart.Location = new System.Drawing.Point(400, 107);
             this.ActChart.Name = "ActChart";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series9.Legend = "Legend1";
-            series9.Name = "Series1";
-            this.ActChart.Series.Add(series9);
+            series15.ChartArea = "ChartArea1";
+            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series15.Legend = "Legend1";
+            series15.Name = "Series1";
+            this.ActChart.Series.Add(series15);
             this.ActChart.Size = new System.Drawing.Size(333, 350);
             this.ActChart.TabIndex = 14;
             this.ActChart.Text = "chart1";
@@ -94,19 +93,19 @@
             // 
             this.UsersChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
             this.UsersChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
-            chartArea10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
-            chartArea10.Name = "ChartArea1";
-            this.UsersChart.ChartAreas.Add(chartArea10);
-            legend10.BackColor = System.Drawing.Color.SlateGray;
-            legend10.Name = "Legend1";
-            this.UsersChart.Legends.Add(legend10);
+            chartArea16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
+            chartArea16.Name = "ChartArea1";
+            this.UsersChart.ChartAreas.Add(chartArea16);
+            legend16.BackColor = System.Drawing.Color.SlateGray;
+            legend16.Name = "Legend1";
+            this.UsersChart.Legends.Add(legend16);
             this.UsersChart.Location = new System.Drawing.Point(45, 107);
             this.UsersChart.Name = "UsersChart";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series10.Legend = "Legend1";
-            series10.Name = "Series1";
-            this.UsersChart.Series.Add(series10);
+            series16.ChartArea = "ChartArea1";
+            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series16.Legend = "Legend1";
+            series16.Name = "Series1";
+            this.UsersChart.Series.Add(series16);
             this.UsersChart.Size = new System.Drawing.Size(333, 350);
             this.UsersChart.TabIndex = 13;
             this.UsersChart.Text = "chart1";
@@ -258,7 +257,6 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
             this.panel3.Controls.Add(this.lblName);
-            this.panel3.Controls.Add(this.lblName1);
             this.panel3.Location = new System.Drawing.Point(1, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(180, 198);
@@ -270,23 +268,11 @@
             this.lblName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
             this.lblName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblName.Location = new System.Drawing.Point(37, 142);
+            this.lblName.Location = new System.Drawing.Point(44, 142);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(23, 18);
             this.lblName.TabIndex = 14;
             this.lblName.Text = "W";
-            // 
-            // lblName1
-            // 
-            this.lblName1.AutoSize = true;
-            this.lblName1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
-            this.lblName1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblName1.Location = new System.Drawing.Point(45, 118);
-            this.lblName1.Name = "lblName1";
-            this.lblName1.Size = new System.Drawing.Size(93, 19);
-            this.lblName1.TabIndex = 13;
-            this.lblName1.Text = "WELCOME";
             // 
             // Dashboard
             // 
@@ -326,7 +312,6 @@
         private System.Windows.Forms.Button btnlogs;
         private System.Windows.Forms.PictureBox picProfile;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblName1;
         private System.Windows.Forms.DataVisualization.Charting.Chart UsersChart;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.DataVisualization.Charting.Chart ActChart;

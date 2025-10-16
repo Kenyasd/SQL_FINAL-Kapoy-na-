@@ -31,7 +31,7 @@ namespace SQL_FINAL_Kapoy_na_
             }
             else
             {
-                picProfile.Image = null; // or a default picture
+                picProfile.Image = null; 
             }
         }
 
