@@ -16,5 +16,10 @@ namespace SQL_FINAL_Kapoy_na_
         {
             InitializeComponent();
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

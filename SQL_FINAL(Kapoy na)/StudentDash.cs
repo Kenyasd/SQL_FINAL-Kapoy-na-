@@ -52,6 +52,7 @@ namespace SQL_FINAL_Kapoy_na_
         {
             AddS add = new AddS();
             add.ShowDialog();
+            this.Hide();
             LoadStudents();
             CountStudents();
 
@@ -139,16 +140,16 @@ namespace SQL_FINAL_Kapoy_na_
 
         private void LoadStudents()
         {
-            //using (SqlConnection con = new SqlConnection(connectionString))
-            //{
-            //    con.Open();
-            //    SqlDataAdapter da = new SqlDataAdapter("F_AllStudents", con);
-            //    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter("F_AllStudents", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-            //    DataTable dt = new DataTable();
-            //    da.Fill(dt);
-            //    dgvStudents.DataSource = dt;
-            //}
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dgvStudents.DataSource = dt;
+            }
         }
         private void CountStudents()
         {
@@ -167,6 +168,11 @@ namespace SQL_FINAL_Kapoy_na_
             Dashboard dash = new Dashboard(firstName, lastName, profilePath);
             dash.Show();
             this.Hide();
+        }
+
+        private void btnStudentD_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

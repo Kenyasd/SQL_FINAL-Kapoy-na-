@@ -109,6 +109,7 @@
             this.btnStudentD.TabIndex = 21;
             this.btnStudentD.Text = "STUDENT";
             this.btnStudentD.UseVisualStyleBackColor = true;
+            this.btnStudentD.Click += new System.EventHandler(this.btnStudentD_Click);
             // 
             // btndashB
             // 
