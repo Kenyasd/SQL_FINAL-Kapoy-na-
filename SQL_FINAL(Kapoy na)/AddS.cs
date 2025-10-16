@@ -22,29 +22,33 @@ namespace SQL_FINAL_Kapoy_na_
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // 1️⃣ Check for missing info
+            // Check for missing info
             if (txtFirstN.Text == "" || txtLastN.Text == "" || txtUser.Text == "" || txtPass.Text == "" || txtEmail.Text == "")
             {
                 MessageBox.Show("Please fill in all required fields.", "Missing Information");
                 return;
             }
 
-            // 2️⃣ Gender validation
+            // Gender validation
             string gender = rdbMale.Checked ? "Male" : (rdbFemale.Checked ? "Female" : "");
             if (gender == "")
             {
                 MessageBox.Show("Please select a gender.");
                 return;
             }
-          
-            int age;
-            if (!Convert.ToInt32(txtAge.Text, out age))
+
+            int age = 0;
+            try
             {
-                MessageBox.Show("Please enter a valid age.");
+                age = Convert.ToInt32(txtAge.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter numbers only in Age.");
                 return;
             }
 
-            // 4Save to SQL
+            // Save to SQL
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
