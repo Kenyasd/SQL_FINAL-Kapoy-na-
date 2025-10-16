@@ -36,10 +36,15 @@ CREATE TABLE Teachers (
     FirstName NVARCHAR(50),
     LastName NVARCHAR(50),
     Gender NVARCHAR(10),
-    Department NVARCHAR(100),   
+    Age INT,
+    Address NVARCHAR(200),
+    Phone NVARCHAR(50),
+    Email NVARCHAR(100),
+    Department NVARCHAR(100),
     Subject NVARCHAR(100),
-    IsActive BIT DEFAULT 1,
-    DateCreated DATETIME DEFAULT GETDATE()
+    Username NVARCHAR(50),
+    Password NVARCHAR(100),
+    Active BIT DEFAULT 1
 );
 CREATE TABLE Logs (
     LogID INT IDENTITY(1,1) PRIMARY KEY,
@@ -48,5 +53,5 @@ CREATE TABLE Logs (
     DateLogged DATETIME DEFAULT GETDATE()
 );
 Drop Procedure F_CountActS;
-DROP PROCEDURE IF EXISTS F_SearchS;
+DROP Table Teachers;
 EXEC sp_rename 'Students.IsActive', 'Active', 'COLUMN';

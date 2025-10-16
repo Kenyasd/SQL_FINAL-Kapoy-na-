@@ -259,6 +259,7 @@
             // 
             // dgvStudents
             // 
+            this.dgvStudents.AllowUserToAddRows = false;
             this.dgvStudents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -270,6 +271,7 @@
             this.dgvStudents.Margin = new System.Windows.Forms.Padding(10);
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.ReadOnly = true;
+            this.dgvStudents.RowHeadersVisible = false;
             this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudents.Size = new System.Drawing.Size(720, 413);
             this.dgvStudents.TabIndex = 11;

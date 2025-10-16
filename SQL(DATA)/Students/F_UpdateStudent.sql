@@ -23,18 +23,31 @@ CREATE PROCEDURE F_UpdateS
     @FirstName NVARCHAR(50),
     @LastName NVARCHAR(50),
     @Gender NVARCHAR(10),
-    @Course NVARCHAR(100),
+    @Age INT,
+    @Address NVARCHAR(200),
+    @Phone NVARCHAR(50),
+    @Email NVARCHAR(100),
     @Department NVARCHAR(100),
-    @Teacher NVARCHAR(100)
+    @Course NVARCHAR(100),
+    @TermLevel NVARCHAR(50),
+    @Username NVARCHAR(50),
+    @Password NVARCHAR(100)
 AS
 BEGIN
     UPDATE Students
-    SET FirstName = @FirstName,
+    SET 
+        FirstName = @FirstName,
         LastName = @LastName,
         Gender = @Gender,
-        Course = @Course,
+        Age = @Age,
+        Address = @Address,
+        Phone = @Phone,
+        Email = @Email,
         Department = @Department,
-        Teacher = @Teacher
+        Course = @Course,
+        TermLevel = @TermLevel,
+        Username = @Username,
+        [Password] = @Password
     WHERE StudentID = @StudentID;
 END
 GO

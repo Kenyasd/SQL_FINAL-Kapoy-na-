@@ -19,18 +19,15 @@ GO
 -- Description:	<Description,,>
 -- =============================================
 CREATE PROCEDURE F_SearchS
-    @Filter NVARCHAR(100)
+    @Keyword NVARCHAR(100)
 AS
-BEGIN
+BEGIN    
     SELECT * FROM Students
-    WHERE IsActive=1 AND (
-        FirstName LIKE '%'+@Filter+'%' OR
-        LastName LIKE '%'+@Filter+'%' OR
-        Gender LIKE '%'+@Filter+'%' OR
-        Course LIKE '%'+@Filter+'%' OR
-        Department LIKE '%'+@Filter+'%' OR
-        Teacher LIKE '%'+@Filter+'%'
-    )
+    WHERE FirstName LIKE '%' + @Keyword + '%'
+       OR LastName LIKE '%' + @Keyword + '%'
+       OR Gender LIKE '%' + @Keyword + '%'
+       OR Course LIKE '%' + @Keyword + '%'
+       OR Department LIKE '%' + @Keyword + '%'  
     ORDER BY StudentID DESC;
 END
 GO
