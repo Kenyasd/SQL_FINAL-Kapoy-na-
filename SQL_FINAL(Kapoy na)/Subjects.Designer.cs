@@ -79,6 +79,7 @@
             this.btnTeacherD.TabIndex = 25;
             this.btnTeacherD.Text = "TEACHER";
             this.btnTeacherD.UseVisualStyleBackColor = true;
+            this.btnTeacherD.Click += new System.EventHandler(this.btnTeacherD_Click);
             // 
             // btnStudentD
             // 
@@ -93,6 +94,7 @@
             this.btnStudentD.TabIndex = 24;
             this.btnStudentD.Text = "STUDENT";
             this.btnStudentD.UseVisualStyleBackColor = true;
+            this.btnStudentD.Click += new System.EventHandler(this.btnStudentD_Click);
             // 
             // btndashB
             // 
@@ -122,6 +124,7 @@
             this.btnsubject.TabIndex = 19;
             this.btnsubject.Text = "SUBJECT";
             this.btnsubject.UseVisualStyleBackColor = true;
+            this.btnsubject.Click += new System.EventHandler(this.btnsubject_Click);
             // 
             // btnlogs
             // 
@@ -136,6 +139,7 @@
             this.btnlogs.TabIndex = 7;
             this.btnlogs.Text = "LOGS";
             this.btnlogs.UseVisualStyleBackColor = true;
+            this.btnlogs.Click += new System.EventHandler(this.btnlogs_Click);
             // 
             // btnreport
             // 
@@ -150,6 +154,7 @@
             this.btnreport.TabIndex = 6;
             this.btnreport.Text = "REPORT";
             this.btnreport.UseVisualStyleBackColor = true;
+            this.btnreport.Click += new System.EventHandler(this.btnreport_Click);
             // 
             // button1
             // 
@@ -164,6 +169,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "LOGOUT";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
