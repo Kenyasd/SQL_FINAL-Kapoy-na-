@@ -14,11 +14,20 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class StudentDash : Form
     {
-        string firstName, lastName, profilePath;
-
+        string firstName="";
+        string lastName="";
+        string  profilePath = "";
         public StudentDash()
         {
             InitializeComponent();
+        }
+
+        public StudentDash(string fname, string lname, string photoPath)
+        {
+            InitializeComponent();
+            firstName = fname;
+            lastName = lname;
+            profilePath = photoPath;
         }
 
         string connectionString = @"Data Source=DESKTOP-IBHAJPM\SQLEXPRESS;Initial Catalog=FINAL_DB;Integrated Security=True";
@@ -130,27 +139,27 @@ namespace SQL_FINAL_Kapoy_na_
 
         private void LoadStudents()
         {
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                SqlDataAdapter da = new SqlDataAdapter("F_AllStudents", con);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            //using (SqlConnection con = new SqlConnection(connectionString))
+            //{
+            //    con.Open();
+            //    SqlDataAdapter da = new SqlDataAdapter("F_AllStudents", con);
+            //    da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dgvStudents.DataSource = dt;
-            }
+            //    DataTable dt = new DataTable();
+            //    da.Fill(dt);
+            //    dgvStudents.DataSource = dt;
+            //}
         }
         private void CountStudents()
         {
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("F_CountActS", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                int count = (int)cmd.ExecuteScalar();
-                lblActstud.Text = $"Active Students: {count}";
-            }
+            //using (SqlConnection con = new SqlConnection(connectionString))
+            //{
+            //    con.Open();
+            //    SqlCommand cmd = new SqlCommand("F_CountActS", con);
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    int count = (int)cmd.ExecuteScalar();
+            //    lblActstud.Text = $"Active Students: {count}";
+            //}
         }
     }
 }

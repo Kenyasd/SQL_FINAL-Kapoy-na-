@@ -13,9 +13,17 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class TeacherDash : Form
     {
-        public TeacherDash()
+
+        string firstName = "";
+        string lastName = "";
+        string profilePath = "";
+
+        public TeacherDash(string fname, string lname, string photoPath)
         {
             InitializeComponent();
+            firstName = fname;
+            lastName = lname;
+            profilePath = photoPath;
         }
 
         private void TeacherDash_Load(object sender, EventArgs e)

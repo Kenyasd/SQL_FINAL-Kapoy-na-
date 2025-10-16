@@ -54,7 +54,7 @@ namespace SQL_FINAL_Kapoy_na_
                 try
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("sp_AddStudent", con);
+                    SqlCommand cmd = new SqlCommand("F_AddS", con);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@FirstName", txtFirstN.Text);

@@ -23,6 +23,20 @@ namespace SQL_FINAL_Kapoy_na_
             this.Hide();
         }
 
+        private void btnstudentD_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StudentDash studentDash = new StudentDash(firstName, lastName, profilePath);
+            studentDash.Show();
+        }
+
+        private void btnteacherD_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            TeacherDash teacherDash = new TeacherDash(firstName, lastName, profilePath);
+            teacherDash.Show();
+        }
+
         private void Dashboard_Load(object sender, EventArgs e)
         {
             lblName.Text = $"{firstName} {lastName}";
