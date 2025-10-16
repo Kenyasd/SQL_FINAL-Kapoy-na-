@@ -18,16 +18,18 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE F_SearchS
-    @Keyword NVARCHAR(100)
+CREATE PROCEDURE F_SearchT
+    @Filter NVARCHAR(100)
 AS
-BEGIN    
-    SELECT * FROM Students
-    WHERE FirstName LIKE '%' + @Keyword + '%'
-       OR LastName LIKE '%' + @Keyword + '%'
-       OR Gender LIKE '%' + @Keyword + '%'
-       OR Course LIKE '%' + @Keyword + '%'
-       OR Department LIKE '%' + @Keyword + '%'  
-    ORDER BY StudentID DESC;
+BEGIN
+    SELECT * FROM Teachers
+    WHERE IsActive=1 AND (
+        FirstName LIKE '%'+@Filter+'%' OR
+        LastName LIKE '%'+@Filter+'%' OR
+        Gender LIKE '%'+@Filter+'%' OR
+        Department LIKE '%'+@Filter+'%' OR
+        Subject LIKE '%'+@Filter+'%'
+    )
+    ORDER BY TeacherID DESC;
 END
 GO

@@ -18,16 +18,18 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE F_SearchS
-    @Keyword NVARCHAR(100)
+CREATE PROCEDURE F_UpdateT
+    @TeacherID INT,
+    @FirstName NVARCHAR(50),
+    @LastName NVARCHAR(50),
+    @Gender NVARCHAR(10),
+    @Department NVARCHAR(100),
+    @Subject NVARCHAR(100)
 AS
-BEGIN    
-    SELECT * FROM Students
-    WHERE FirstName LIKE '%' + @Keyword + '%'
-       OR LastName LIKE '%' + @Keyword + '%'
-       OR Gender LIKE '%' + @Keyword + '%'
-       OR Course LIKE '%' + @Keyword + '%'
-       OR Department LIKE '%' + @Keyword + '%'  
-    ORDER BY StudentID DESC;
+BEGIN
+    UPDATE Teachers
+    SET FirstName=@FirstName, LastName=@LastName, Gender=@Gender,
+        Department=@Department, Subject=@Subject
+    WHERE TeacherID=@TeacherID;
 END
 GO
