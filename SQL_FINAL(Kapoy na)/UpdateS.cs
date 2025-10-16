@@ -22,7 +22,8 @@ namespace SQL_FINAL_Kapoy_na_
             studentID = id;
         }
      
-        private void UpdateS_Load(object sender, EventArgs e)
+        private void UpdateS_Load(object sender, EventArgs e) 
+        { 
        
             LoadStudentData();
         }
