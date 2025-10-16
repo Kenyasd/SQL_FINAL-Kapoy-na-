@@ -17,6 +17,7 @@ namespace SQL_FINAL_Kapoy_na_
         public StudentDash()
         {
             InitializeComponent();
+            dgvStudents.CurrentCellDirtyStateChanged += dgvStudents_CurrentCellDirtyStateChanged;
         }      
 
         string connectionString = @"Data Source=DESKTOP-IBHAJPM\SQLEXPRESS;Initial Catalog=FINAL_DB;Integrated Security=True";
@@ -33,6 +34,8 @@ namespace SQL_FINAL_Kapoy_na_
             {
                 picProfile.Image = null; 
             }
+            dgvStudents.CurrentCellDirtyStateChanged += dgvStudents_CurrentCellDirtyStateChanged;
+            dgvStudents.CellValueChanged += dgvStudents_CellValueChanged;
             LoadStudents();
             CountStudents();
         }
@@ -119,6 +122,28 @@ namespace SQL_FINAL_Kapoy_na_
             }       
         }
 
+        private void dgvStudents_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvStudents.Columns[e.ColumnIndex].Name == "Active")
+            {
+                int studentID = Convert.ToInt32(dgvStudents.Rows[e.RowIndex].Cells["StudentID"].Value);
+                bool newStatus = Convert.ToBoolean(dgvStudents.Rows[e.RowIndex].Cells["Active"].Value);
+
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("F_ActiveStatus", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StudentID", studentID);
+                    cmd.Parameters.AddWithValue("@Active", newStatus);
+                    cmd.ExecuteNonQuery();
+                }
+
+                AddLog("UPDATE", $"Changed student ID {studentID} Active status to {newStatus}");
+                CountStudents();
+            }
+        }
+
         private void dgvStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dgvStudents.Columns[e.ColumnIndex].Name == "Active")
@@ -138,8 +163,14 @@ namespace SQL_FINAL_Kapoy_na_
 
                 AddLog("UPDATE", $"Set student ID {studentID} active status to {newStatus}");
             }
-        }       
-
+        }
+        private void dgvStudents_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dgvStudents.IsCurrentCellDirty)
+            {
+                dgvStudents.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
         private void LoadStudents()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -151,7 +182,9 @@ namespace SQL_FINAL_Kapoy_na_
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dgvStudents.DataSource = dt;
-                dgvStudents.Columns["Active"].HeaderText = "Active";
+                
+                dgvStudents.ReadOnly = false;
+                dgvStudents.Columns["StudentID"].ReadOnly = true; 
                 dgvStudents.Columns["Active"].ReadOnly = false;
             }
         }
