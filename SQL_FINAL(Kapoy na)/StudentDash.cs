@@ -212,5 +212,12 @@ namespace SQL_FINAL_Kapoy_na_
             logs.Show();
             this.Hide();
         }
+
+        private void btnsubject_Click(object sender, EventArgs e)
+        {
+            SUBJECT sUBJECT = new SUBJECT();
+            sUBJECT.Show();
+            this.Hide();
+        }
     }
 }

@@ -26,10 +26,10 @@ namespace SQL_FINAL_Kapoy_na_
         }
 
         private void btnstudentD_Click(object sender, EventArgs e)
-        {
-            this.Hide();
+        {           
             StudentDash studentDash = new StudentDash();
             studentDash.Show();
+            this.Hide();
         }
 
         private void btnteacherD_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace SQL_FINAL_Kapoy_na_
             }
             else
             {
-                picProfile.Image = null; // or a default picture
+                picProfile.Image = null;
             }
         }
 
@@ -62,6 +62,27 @@ namespace SQL_FINAL_Kapoy_na_
         {
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
+            this.Hide();
+        }
+
+        private void btnSubject_Click(object sender, EventArgs e)
+        {
+            SUBJECT sUBJECT = new SUBJECT();
+            sUBJECT.Show();
+            this.Hide();
+        }
+
+        private void btnreport_Click(object sender, EventArgs e)
+        {
+            Reports reports = new Reports();
+            reports.Show();
+            this.Hide();
+        }
+
+        private void btnlogs_Click(object sender, EventArgs e)
+        {
+            LOGS lOGS = new LOGS();
+            lOGS.Show();
             this.Hide();
         }
     }

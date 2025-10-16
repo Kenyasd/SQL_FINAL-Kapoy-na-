@@ -38,16 +38,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
-            this.picProfile = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.picProfile = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -79,6 +79,7 @@
             this.btnTeacherD.TabIndex = 25;
             this.btnTeacherD.Text = "TEACHER";
             this.btnTeacherD.UseVisualStyleBackColor = true;
+            this.btnTeacherD.Click += new System.EventHandler(this.btnTeacherD_Click);
             // 
             // btnStudentD
             // 
@@ -93,6 +94,7 @@
             this.btnStudentD.TabIndex = 24;
             this.btnStudentD.Text = "STUDENT";
             this.btnStudentD.UseVisualStyleBackColor = true;
+            this.btnStudentD.Click += new System.EventHandler(this.btnStudentD_Click);
             // 
             // btndashB
             // 
@@ -107,6 +109,7 @@
             this.btndashB.TabIndex = 23;
             this.btndashB.Text = "DASHBOARD";
             this.btndashB.UseVisualStyleBackColor = true;
+            this.btndashB.Click += new System.EventHandler(this.btndashB_Click);
             // 
             // btnsubject
             // 
@@ -121,6 +124,7 @@
             this.btnsubject.TabIndex = 19;
             this.btnsubject.Text = "SUBJECT";
             this.btnsubject.UseVisualStyleBackColor = true;
+            this.btnsubject.Click += new System.EventHandler(this.btnsubject_Click);
             // 
             // btnlogs
             // 
@@ -135,6 +139,7 @@
             this.btnlogs.TabIndex = 7;
             this.btnlogs.Text = "LOGS";
             this.btnlogs.UseVisualStyleBackColor = true;
+            this.btnlogs.Click += new System.EventHandler(this.btnlogs_Click);
             // 
             // btnreport
             // 
@@ -149,6 +154,7 @@
             this.btnreport.TabIndex = 6;
             this.btnreport.Text = "REPORT";
             this.btnreport.UseVisualStyleBackColor = true;
+            this.btnreport.Click += new System.EventHandler(this.btnreport_Click);
             // 
             // button1
             // 
@@ -163,6 +169,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "LOGOUT";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
@@ -186,22 +193,13 @@
             this.lblName.TabIndex = 13;
             this.lblName.Text = "label2";
             // 
-            // picProfile
-            // 
-            this.picProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
-            this.picProfile.Location = new System.Drawing.Point(26, 21);
-            this.picProfile.Name = "picProfile";
-            this.picProfile.Size = new System.Drawing.Size(128, 76);
-            this.picProfile.TabIndex = 2;
-            this.picProfile.TabStop = false;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(40)))), ((int)(((byte)(62)))));
             this.panel2.Controls.Add(this.txtSearch);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(178, 13);
+            this.panel2.Location = new System.Drawing.Point(178, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(747, 567);
             this.panel2.TabIndex = 19;
@@ -240,6 +238,15 @@
             this.dataGridView1.Size = new System.Drawing.Size(731, 413);
             this.dataGridView1.TabIndex = 11;
             // 
+            // picProfile
+            // 
+            this.picProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
+            this.picProfile.Location = new System.Drawing.Point(26, 21);
+            this.picProfile.Name = "picProfile";
+            this.picProfile.Size = new System.Drawing.Size(128, 76);
+            this.picProfile.TabIndex = 2;
+            this.picProfile.TabStop = false;
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,10 +261,10 @@
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).EndInit();
             this.ResumeLayout(false);
 
         }
