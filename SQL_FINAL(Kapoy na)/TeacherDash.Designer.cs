@@ -31,15 +31,6 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idinstruc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.course = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.student = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTeacherD = new System.Windows.Forms.Button();
             this.btnStudentD = new System.Windows.Forms.Button();
             this.btndashB = new System.Windows.Forms.Button();
@@ -49,17 +40,17 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
+            this.picProfile = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
             this.btnupdate = new System.Windows.Forms.Button();
             this.btnadd = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.picProfile = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -84,65 +75,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idinstruc,
-            this.instructor,
-            this.gender,
-            this.email,
-            this.department,
-            this.course,
-            this.student,
-            this.grade,
-            this.status});
             this.dataGridView1.Location = new System.Drawing.Point(2, 81);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(731, 413);
             this.dataGridView1.TabIndex = 11;
-            // 
-            // idinstruc
-            // 
-            this.idinstruc.HeaderText = "ID ";
-            this.idinstruc.Name = "idinstruc";
-            // 
-            // instructor
-            // 
-            this.instructor.HeaderText = "INSTRUCTOR";
-            this.instructor.Name = "instructor";
-            // 
-            // gender
-            // 
-            this.gender.HeaderText = "GENDER";
-            this.gender.Name = "gender";
-            // 
-            // email
-            // 
-            this.email.HeaderText = "EMAIL";
-            this.email.Name = "email";
-            // 
-            // department
-            // 
-            this.department.HeaderText = "DEPARTMENT";
-            this.department.Name = "department";
-            // 
-            // course
-            // 
-            this.course.HeaderText = "COURSE";
-            this.course.Name = "course";
-            // 
-            // student
-            // 
-            this.student.HeaderText = "STUDENT";
-            this.student.Name = "student";
-            // 
-            // grade
-            // 
-            this.grade.HeaderText = "GRADE";
-            this.grade.Name = "grade";
-            // 
-            // status
-            // 
-            this.status.HeaderText = "STATUS";
-            this.status.Name = "status";
             // 
             // btnTeacherD
             // 
@@ -264,6 +200,15 @@
             this.lblName.TabIndex = 13;
             this.lblName.Text = "label2";
             // 
+            // picProfile
+            // 
+            this.picProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
+            this.picProfile.Location = new System.Drawing.Point(26, 21);
+            this.picProfile.Name = "picProfile";
+            this.picProfile.Size = new System.Drawing.Size(128, 76);
+            this.picProfile.TabIndex = 2;
+            this.picProfile.TabStop = false;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(40)))), ((int)(((byte)(62)))));
@@ -333,15 +278,6 @@
             this.panel2.Size = new System.Drawing.Size(747, 567);
             this.panel2.TabIndex = 17;
             // 
-            // picProfile
-            // 
-            this.picProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
-            this.picProfile.Location = new System.Drawing.Point(26, 21);
-            this.picProfile.Name = "picProfile";
-            this.picProfile.Size = new System.Drawing.Size(128, 76);
-            this.picProfile.TabIndex = 2;
-            this.picProfile.TabStop = false;
-            // 
             // TeacherDash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,10 +292,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -370,15 +306,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idinstruc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn instructor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn department;
-        private System.Windows.Forms.DataGridViewTextBoxColumn course;
-        private System.Windows.Forms.DataGridViewTextBoxColumn student;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.Button btnTeacherD;
         private System.Windows.Forms.Button btnStudentD;
         private System.Windows.Forms.Button btndashB;

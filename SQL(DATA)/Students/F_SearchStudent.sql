@@ -1,0 +1,36 @@
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE F_SearchS
+    @Filter NVARCHAR(100)
+AS
+BEGIN
+    SELECT * FROM Students
+    WHERE IsActive=1 AND (
+        FirstName LIKE '%'+@Filter+'%' OR
+        LastName LIKE '%'+@Filter+'%' OR
+        Gender LIKE '%'+@Filter+'%' OR
+        Course LIKE '%'+@Filter+'%' OR
+        Department LIKE '%'+@Filter+'%' OR
+        Teacher LIKE '%'+@Filter+'%'
+    )
+    ORDER BY StudentID DESC;
+END
+GO

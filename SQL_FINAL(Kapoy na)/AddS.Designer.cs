@@ -41,7 +41,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rdbFemale = new System.Windows.Forms.RadioButton();
             this.rdbMale = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -78,6 +78,7 @@
             this.btnSave.TabIndex = 112;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cmbCourse
             // 
@@ -212,18 +213,18 @@
             this.label9.TabIndex = 100;
             this.label9.Text = "Term Level:";
             // 
-            // radioButton1
+            // rdbFemale
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(583, 138);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 23);
-            this.radioButton1.TabIndex = 99;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Female";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdbFemale.AutoSize = true;
+            this.rdbFemale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rdbFemale.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFemale.Location = new System.Drawing.Point(583, 138);
+            this.rdbFemale.Name = "rdbFemale";
+            this.rdbFemale.Size = new System.Drawing.Size(85, 23);
+            this.rdbFemale.TabIndex = 99;
+            this.rdbFemale.TabStop = true;
+            this.rdbFemale.Text = "Female";
+            this.rdbFemale.UseVisualStyleBackColor = true;
             // 
             // rdbMale
             // 
@@ -450,6 +451,7 @@
             this.label12.Size = new System.Drawing.Size(41, 32);
             this.label12.TabIndex = 113;
             this.label12.Text = "←";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // AddS
             // 
@@ -471,7 +473,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rdbFemale);
             this.Controls.Add(this.rdbMale);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel7);
@@ -516,7 +518,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rdbFemale;
         private System.Windows.Forms.RadioButton rdbMale;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel7;
