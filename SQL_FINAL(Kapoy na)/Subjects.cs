@@ -162,7 +162,7 @@ namespace SQL_FINAL_Kapoy_na_
 
         private void btnadd_Click(object sender, EventArgs e)
         {
-            AddSubject add = new AddSubject();
+            AddSub add = new AddSub();
             add.ShowDialog();
             LoadSubjects();
             CountSubjects();
@@ -181,7 +181,7 @@ namespace SQL_FINAL_Kapoy_na_
             string name = dgvSubjects.SelectedRows[0].Cells["SubjectName"].Value.ToString();
             bool active = Convert.ToBoolean(dgvSubjects.SelectedRows[0].Cells["Active"].Value);
 
-            UpdateSubject upd = new UpdateSubject(subjectID, code, name, active);
+            UpdateSub upd = new UpdateSub(subjectID, code, name, active);
             upd.ShowDialog();
             LoadSubjects();
         }
