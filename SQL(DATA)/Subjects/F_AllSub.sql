@@ -22,14 +22,18 @@ CREATE PROCEDURE F_AllSub
 AS
 BEGIN
     SELECT 
-        s.SubjectID,
-        s.SubjectCode,
-        s.SubjectName,
-        (SELECT COUNT(*) FROM TeacherSubjects ts WHERE ts.SubjectID = s.SubjectID) AS TeacherCount,
-        (SELECT COUNT(*) FROM StudentSubjects ss WHERE ss.SubjectID = s.SubjectID) AS StudentCount,
-        s.Active
-    FROM Subjects s
-    ORDER BY s.SubjectID DESC;
-END
+        S.SubjectID,
+        S.SubjectCode,
+        S.SubjectName,
+        S.Active,
+        T.FirstName + ' ' + T.LastName AS TeacherName,
+        ST.FirstName + ' ' + ST.LastName AS StudentName
+    FROM Subjects S
+    LEFT JOIN TeacherSubjects TS ON S.SubjectID = TS.SubjectID
+    LEFT JOIN Teachers T ON TS.TeacherID = T.TeacherID
+    LEFT JOIN StudentSubjects SS ON S.SubjectID = SS.SubjectID
+    LEFT JOIN Students ST ON SS.StudentID = ST.StudentID
+    ORDER BY S.SubjectID DESC;
+END;
 GO
 

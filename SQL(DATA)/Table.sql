@@ -86,6 +86,6 @@ VALUES (1, 2);
 INSERT INTO StudentSubjects (StudentID, SubjectID)
 VALUES (3, 2); 
 
-Drop Procedure F_AllSub ;
+Drop Procedure F_SearchSubject ;
 DROP Table StudentSubjects;
 EXEC sp_rename 'Students.IsActive', 'Active', 'COLUMN';

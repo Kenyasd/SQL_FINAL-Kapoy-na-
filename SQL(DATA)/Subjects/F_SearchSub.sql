@@ -22,14 +22,22 @@ CREATE PROCEDURE F_SearchSubject
     @Keyword NVARCHAR(100)
 AS
 BEGIN
-    SELECT s.SubjectID, s.SubjectCode, s.SubjectName, s.Active
-    FROM Subjects s
-    LEFT JOIN TeacherSubjects ts ON s.SubjectID = ts.SubjectID
-    LEFT JOIN Teachers t ON ts.TeacherID = t.TeacherID
-    WHERE s.SubjectCode LIKE '%' + @Keyword + '%'
-       OR s.SubjectName LIKE '%' + @Keyword + '%'
-       OR t.FirstName LIKE '%' + @Keyword + '%'
-       OR t.LastName LIKE '%' + @Keyword + '%'
-    ORDER BY s.SubjectID DESC;
-END
+    SELECT 
+        S.SubjectID,
+        S.SubjectCode,
+        S.SubjectName,
+        S.Active,
+        T.FirstName + ' ' + T.LastName AS TeacherName,
+        ST.FirstName + ' ' + ST.LastName AS StudentName
+    FROM Subjects S
+    LEFT JOIN TeacherSubjects TS ON S.SubjectID = TS.SubjectID
+    LEFT JOIN Teachers T ON TS.TeacherID = T.TeacherID
+    LEFT JOIN StudentSubjects SS ON S.SubjectID = SS.SubjectID
+    LEFT JOIN Students ST ON SS.StudentID = ST.StudentID
+    WHERE S.SubjectCode LIKE '%' + @Keyword + '%'
+       OR S.SubjectName LIKE '%' + @Keyword + '%'
+       OR T.FirstName LIKE '%' + @Keyword + '%'
+       OR ST.FirstName LIKE '%' + @Keyword + '%'
+    ORDER BY S.SubjectID DESC;
+END;
 GO
