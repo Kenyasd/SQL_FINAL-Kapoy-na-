@@ -19,6 +19,7 @@ namespace SQL_FINAL_Kapoy_na_
         {
             InitializeComponent();
             dgvTeachers.CurrentCellDirtyStateChanged += dgvTeachers_CurrentCellDirtyStateChanged;
+            dgvTeachers.CellValueChanged += dgvTeachers_CellValueChanged;
         }
 
         private void TeacherDash_Load(object sender, EventArgs e)
@@ -34,24 +35,35 @@ namespace SQL_FINAL_Kapoy_na_
                 picProfile.Image = null; 
             }
             LoadTeachers();
+            CountTeachers();
         }
         private void LoadTeachers()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                con.Open();
-                SqlDataAdapter da = new SqlDataAdapter("F_AllTeachers", con);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                //con.Open();
+                //SqlDataAdapter da = new SqlDataAdapter("F_AllTeachers", con);
+                //da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
+                //DataTable dt = new DataTable();
+                //da.Fill(dt);
+                //dgvTeachers.DataSource = dt;
+
+                //dgvTeachers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                //dgvTeachers.ReadOnly = false;
+                //dgvTeachers.Columns["TeacherID"].ReadOnly = true;
+                //dgvTeachers.Columns["Active"].ReadOnly = false;
+                //dgvTeachers.Columns["Active"].HeaderText = "Active";
+
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Teachers ORDER BY TeacherID DESC", con);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dgvTeachers.DataSource = dt;
 
-                dgvTeachers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dgvTeachers.ReadOnly = false;
                 dgvTeachers.Columns["TeacherID"].ReadOnly = true;
                 dgvTeachers.Columns["Active"].ReadOnly = false;
-                dgvTeachers.Columns["Active"].HeaderText = "Active";
+
             }
         }
         private void dgvTeachers_CurrentCellDirtyStateChanged(object sender, EventArgs e)

@@ -21,6 +21,6 @@ GO
 CREATE PROCEDURE F_CountActT
 AS
 BEGIN
-    SELECT COUNT(*) AS TotalActiveTeachers FROM Teachers WHERE IsActive=1;
+    SELECT COUNT(*) FROM Teachers WHERE Active = 1;
 END
 GO
