@@ -36,14 +36,10 @@ CREATE TABLE Teachers (
     FirstName NVARCHAR(50),
     LastName NVARCHAR(50),
     Gender NVARCHAR(10),
-    Age INT,
-    Address NVARCHAR(200),
-    Phone NVARCHAR(50),
-    Email NVARCHAR(100),
     Department NVARCHAR(100),
     Subject NVARCHAR(100),
     Username NVARCHAR(50),
-    Password NVARCHAR(100),
+    [Password] NVARCHAR(100),
     Active BIT DEFAULT 1
 );
 CREATE TABLE Logs (
@@ -52,6 +48,35 @@ CREATE TABLE Logs (
     Description NVARCHAR(255),
     DateLogged DATETIME DEFAULT GETDATE()
 );
-Drop Procedure F_CountActS;
+
+CREATE TABLE Subjects (
+    SubjectID INT IDENTITY(1,1) PRIMARY KEY,
+    SubjectCode NVARCHAR(50) UNIQUE NOT NULL,
+    SubjectName NVARCHAR(150) NOT NULL,
+    Active BIT DEFAULT 1
+);
+
+CREATE TABLE TeacherSubjects (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    TeacherID INT FOREIGN KEY REFERENCES Teachers(TeacherID),
+    SubjectID INT FOREIGN KEY REFERENCES Subjects(SubjectID)
+);
+
+CREATE TABLE StudentSubjects (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    StudentID INT FOREIGN KEY REFERENCES Students(StudentID),
+    SubjectID INT FOREIGN KEY REFERENCES Subjects(SubjectID)
+);
+
+INSERT INTO Subjects (SubjectCode, SubjectName) VALUES
+('DASTRU', 'Data Structures and Algorithms'),
+('INMANA', 'Information Management'),
+('EVEDRI', 'Event Driven Programming'),
+('TECHNO', 'Technopreneurship'),
+('UNDSLF', 'Understanding the Self'),
+('PAFIT4', 'Sports and Recreation'),
+('GEEL03', 'GE Elective 3 (Living in the IT Era)');
+
+Drop Procedure F_AllTeachers  ;
 DROP Table Teachers;
 EXEC sp_rename 'Students.IsActive', 'Active', 'COLUMN';

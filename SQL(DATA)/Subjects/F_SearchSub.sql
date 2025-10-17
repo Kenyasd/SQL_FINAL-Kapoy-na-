@@ -18,11 +18,18 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE F_AllTeachers
+CREATE PROCEDURE F_SearchSubject
+    @Keyword NVARCHAR(100)
 AS
 BEGIN
-    SELECT TeacherID, FirstName, LastName, Gender, Department, Subject, Username, Active
-    FROM Teachers
-    ORDER BY TeacherID DESC;
+    SELECT s.SubjectID, s.SubjectCode, s.SubjectName, s.Active
+    FROM Subjects s
+    LEFT JOIN TeacherSubjects ts ON s.SubjectID = ts.SubjectID
+    LEFT JOIN Teachers t ON ts.TeacherID = t.TeacherID
+    WHERE s.SubjectCode LIKE '%' + @Keyword + '%'
+       OR s.SubjectName LIKE '%' + @Keyword + '%'
+       OR t.FirstName LIKE '%' + @Keyword + '%'
+       OR t.LastName LIKE '%' + @Keyword + '%'
+    ORDER BY s.SubjectID DESC;
 END
 GO

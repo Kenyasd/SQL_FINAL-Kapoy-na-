@@ -18,11 +18,9 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE F_AllTeachers
+CREATE PROCEDURE F_CountActT
 AS
 BEGIN
-    SELECT TeacherID, FirstName, LastName, Gender, Department, Subject, Username, Active
-    FROM Teachers
-    ORDER BY TeacherID DESC;
+    SELECT COUNT(*) FROM Teachers WHERE Active = 1;
 END
 GO

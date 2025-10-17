@@ -23,10 +23,12 @@ CREATE PROCEDURE F_AddT
     @LastName NVARCHAR(50),
     @Gender NVARCHAR(10),
     @Department NVARCHAR(100),
-    @Subject NVARCHAR(100)
+    @Subject NVARCHAR(100),
+    @Username NVARCHAR(50),
+    @Password NVARCHAR(100)
 AS
 BEGIN
-    INSERT INTO Teachers (FirstName, LastName, Gender, Department, Subject)
-    VALUES (@FirstName, @LastName, @Gender, @Department, @Subject);
+    INSERT INTO Teachers (FirstName, LastName, Gender, Department, Subject, Username, [Password], Active)
+    VALUES (@FirstName, @LastName, @Gender, @Department, @Subject, @Username, @Password, 1);
 END
 GO

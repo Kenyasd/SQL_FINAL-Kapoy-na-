@@ -18,11 +18,15 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE F_AllTeachers
+-- ================================================
+CREATE PROCEDURE F_UpdateActiveSubject
+    @SubjectID INT,
+    @Active BIT
 AS
 BEGIN
-    SELECT TeacherID, FirstName, LastName, Gender, Department, Subject, Username, Active
-    FROM Teachers
-    ORDER BY TeacherID DESC;
+    UPDATE Subjects
+    SET Active = @Active
+    WHERE SubjectID = @SubjectID;
 END
 GO
+

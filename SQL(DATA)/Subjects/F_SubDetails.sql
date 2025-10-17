@@ -18,11 +18,20 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE F_AllTeachers
+CREATE PROCEDURE F_SubjectDetails
+    @SubjectID INT
 AS
 BEGIN
-    SELECT TeacherID, FirstName, LastName, Gender, Department, Subject, Username, Active
-    FROM Teachers
-    ORDER BY TeacherID DESC;
+    SELECT 
+        s.SubjectCode,
+        s.SubjectName,
+        t.FirstName + ' ' + t.LastName AS TeacherName,
+        st.FirstName + ' ' + st.LastName AS StudentName
+    FROM Subjects s
+    LEFT JOIN TeacherSubjects ts ON s.SubjectID = ts.SubjectID
+    LEFT JOIN Teachers t ON ts.TeacherID = t.TeacherID
+    LEFT JOIN StudentSubjects ss ON s.SubjectID = ss.SubjectID
+    LEFT JOIN Students st ON ss.StudentID = st.StudentID
+    WHERE s.SubjectID = @SubjectID;
 END
 GO

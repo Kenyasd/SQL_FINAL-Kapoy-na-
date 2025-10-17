@@ -84,5 +84,10 @@ namespace SQL_FINAL_Kapoy_na_
             login.Show();
             this.Hide();
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

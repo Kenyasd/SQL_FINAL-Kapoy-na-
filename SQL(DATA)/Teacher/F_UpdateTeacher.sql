@@ -24,12 +24,19 @@ CREATE PROCEDURE F_UpdateT
     @LastName NVARCHAR(50),
     @Gender NVARCHAR(10),
     @Department NVARCHAR(100),
-    @Subject NVARCHAR(100)
+    @Subject NVARCHAR(100),
+    @Username NVARCHAR(50),
+    @Password NVARCHAR(100)
 AS
 BEGIN
     UPDATE Teachers
-    SET FirstName=@FirstName, LastName=@LastName, Gender=@Gender,
-        Department=@Department, Subject=@Subject
-    WHERE TeacherID=@TeacherID;
+    SET FirstName = @FirstName,
+        LastName = @LastName,
+        Gender = @Gender,
+        Department = @Department,
+        Subject = @Subject,
+        Username = @Username,
+        [Password] = @Password
+    WHERE TeacherID = @TeacherID;
 END
 GO

@@ -18,11 +18,12 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE F_AllTeachers
+CREATE PROCEDURE F_AddSubject
+    @SubjectCode NVARCHAR(50),
+    @SubjectName NVARCHAR(150)
 AS
 BEGIN
-    SELECT TeacherID, FirstName, LastName, Gender, Department, Subject, Username, Active
-    FROM Teachers
-    ORDER BY TeacherID DESC;
+    INSERT INTO Subjects (SubjectCode, SubjectName, Active)
+    VALUES (@SubjectCode, @SubjectName, 1);
 END
 GO

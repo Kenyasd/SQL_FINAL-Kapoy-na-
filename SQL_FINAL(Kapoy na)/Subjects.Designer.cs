@@ -43,6 +43,10 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnupdate = new System.Windows.Forms.Button();
+            this.btnadd = new System.Windows.Forms.Button();
+            this.lblActTeac = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picProfile)).BeginInit();
@@ -206,6 +210,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(40)))), ((int)(((byte)(62)))));
+            this.panel2.Controls.Add(this.lblActTeac);
+            this.panel2.Controls.Add(this.btnDelete);
+            this.panel2.Controls.Add(this.btnupdate);
+            this.panel2.Controls.Add(this.btnadd);
             this.panel2.Controls.Add(this.txtSearch);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.dataGridView1);
@@ -217,21 +225,22 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Arial", 11.25F);
-            this.txtSearch.Location = new System.Drawing.Point(594, 61);
+            this.txtSearch.Location = new System.Drawing.Point(590, 66);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(139, 25);
             this.txtSearch.TabIndex = 13;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(23, 25);
+            this.label1.Location = new System.Drawing.Point(23, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 41);
+            this.label1.Size = new System.Drawing.Size(158, 41);
             this.label1.TabIndex = 12;
-            this.label1.Text = "SUBJECTS";
+            this.label1.Text = "Subjects";
             // 
             // dataGridView1
             // 
@@ -242,11 +251,62 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 93);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 101);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(10);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(731, 413);
+            this.dataGridView1.Size = new System.Drawing.Size(720, 413);
             this.dataGridView1.TabIndex = 11;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(605, 514);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(128, 48);
+            this.btnDelete.TabIndex = 16;
+            this.btnDelete.Text = "DELETE";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnupdate
+            // 
+            this.btnupdate.FlatAppearance.BorderSize = 0;
+            this.btnupdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnupdate.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnupdate.ForeColor = System.Drawing.Color.White;
+            this.btnupdate.Location = new System.Drawing.Point(316, 513);
+            this.btnupdate.Name = "btnupdate";
+            this.btnupdate.Size = new System.Drawing.Size(128, 48);
+            this.btnupdate.TabIndex = 15;
+            this.btnupdate.Text = "UPDATE";
+            this.btnupdate.UseVisualStyleBackColor = true;
+            // 
+            // btnadd
+            // 
+            this.btnadd.FlatAppearance.BorderSize = 0;
+            this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnadd.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnadd.ForeColor = System.Drawing.Color.White;
+            this.btnadd.Location = new System.Drawing.Point(13, 515);
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(128, 48);
+            this.btnadd.TabIndex = 14;
+            this.btnadd.Text = "ADD";
+            this.btnadd.UseVisualStyleBackColor = true;
+            // 
+            // lblActTeac
+            // 
+            this.lblActTeac.AutoSize = true;
+            this.lblActTeac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
+            this.lblActTeac.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.lblActTeac.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblActTeac.Location = new System.Drawing.Point(26, 72);
+            this.lblActTeac.Name = "lblActTeac";
+            this.lblActTeac.Size = new System.Drawing.Size(54, 19);
+            this.lblActTeac.TabIndex = 17;
+            this.lblActTeac.Text = "label2";
             // 
             // Subjects
             // 
@@ -288,5 +348,9 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnupdate;
+        private System.Windows.Forms.Button btnadd;
+        private System.Windows.Forms.Label lblActTeac;
     }
 }
