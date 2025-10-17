@@ -19,11 +19,21 @@ GO
 -- Description:	<Description,,>
 -- =============================================
 CREATE PROCEDURE F_AddSubject
-    @SubjectCode NVARCHAR(50),
-    @SubjectName NVARCHAR(150)
+     @SubjectCode NVARCHAR(50),
+    @SubjectName NVARCHAR(150),
+    @TeacherID INT = NULL,
+    @StudentID INT = NULL
 AS
 BEGIN
-    INSERT INTO Subjects (SubjectCode, SubjectName, Active)
-    VALUES (@SubjectCode, @SubjectName, 1);
-END
+    INSERT INTO Subjects (SubjectCode, SubjectName)
+    VALUES (@SubjectCode, @SubjectName);
+
+    DECLARE @NewSubjectID INT = SCOPE_IDENTITY();
+
+    IF @TeacherID IS NOT NULL
+        INSERT INTO TeacherSubjects (TeacherID, SubjectID) VALUES (@TeacherID, @NewSubjectID);
+
+    IF @StudentID IS NOT NULL
+        INSERT INTO StudentSubjects (StudentID, SubjectID) VALUES (@StudentID, @NewSubjectID);
+END;
 GO

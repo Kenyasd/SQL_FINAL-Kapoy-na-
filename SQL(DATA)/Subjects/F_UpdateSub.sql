@@ -20,17 +20,15 @@ GO
 -- =============================================
 CREATE PROCEDURE F_UpdateSubject
     @SubjectID INT,
-    @Code NVARCHAR(50),
-    @Title NVARCHAR(200),
-    @Teacher NVARCHAR(100),
+    @SubjectCode NVARCHAR(50),
+    @SubjectName NVARCHAR(150),
     @Active BIT
 AS
 BEGIN
     UPDATE Subjects
-    SET Code = @Code,
-        Title = @Title,
-        Teacher = @Teacher,
+    SET SubjectCode = @SubjectCode,
+        SubjectName = @SubjectName,
         Active = @Active
     WHERE SubjectID = @SubjectID;
-END
+END;
 GO

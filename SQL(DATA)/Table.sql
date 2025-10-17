@@ -53,19 +53,22 @@ CREATE TABLE Subjects (
     SubjectID INT IDENTITY(1,1) PRIMARY KEY,
     SubjectCode NVARCHAR(50) UNIQUE NOT NULL,
     SubjectName NVARCHAR(150) NOT NULL,
-    Active BIT DEFAULT 1
-);
+    Active BIT DEFAULT 1);
 
 CREATE TABLE TeacherSubjects (
     ID INT IDENTITY(1,1) PRIMARY KEY,
-    TeacherID INT FOREIGN KEY REFERENCES Teachers(TeacherID),
-    SubjectID INT FOREIGN KEY REFERENCES Subjects(SubjectID)
+    TeacherID INT NOT NULL,
+    SubjectID INT NOT NULL,
+    FOREIGN KEY (TeacherID) REFERENCES Teachers(TeacherID),
+    FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
 );
 
 CREATE TABLE StudentSubjects (
     ID INT IDENTITY(1,1) PRIMARY KEY,
-    StudentID INT FOREIGN KEY REFERENCES Students(StudentID),
-    SubjectID INT FOREIGN KEY REFERENCES Subjects(SubjectID)
+    StudentID INT NOT NULL,
+    SubjectID INT NOT NULL,
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+    FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
 );
 
 INSERT INTO Subjects (SubjectCode, SubjectName) VALUES
@@ -77,6 +80,12 @@ INSERT INTO Subjects (SubjectCode, SubjectName) VALUES
 ('PAFIT4', 'Sports and Recreation'),
 ('GEEL03', 'GE Elective 3 (Living in the IT Era)');
 
-Drop Procedure F_UpdateSubject  ;
-DROP Table Teachers;
+INSERT INTO TeacherSubjects (TeacherID, SubjectID)
+VALUES (1, 2);  
+
+INSERT INTO StudentSubjects (StudentID, SubjectID)
+VALUES (3, 2); 
+
+Drop Procedure F_AllSub ;
+DROP Table StudentSubjects;
 EXEC sp_rename 'Students.IsActive', 'Active', 'COLUMN';

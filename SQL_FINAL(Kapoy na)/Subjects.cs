@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,7 +17,10 @@ namespace SQL_FINAL_Kapoy_na_
         public Subjects()
         {
             InitializeComponent();
+            dgvSubjects.CurrentCellDirtyStateChanged += dgvSubjects_CurrentCellDirtyStateChanged;
         }
+
+        string connectionString = @"Data Source=DESKTOP-IBHAJPM\SQLEXPRESS;Initial Catalog=FINAL_DB;Integrated Security=True";
 
         private void Subjects_Load(object sender, EventArgs e)
         {
@@ -30,6 +34,8 @@ namespace SQL_FINAL_Kapoy_na_
             {
                 picProfile.Image = null; 
             }
+            LoadSubjects();
+            CountSubjects();
         }
 
         private void btndashB_Click(object sender, EventArgs e)
@@ -84,8 +90,41 @@ namespace SQL_FINAL_Kapoy_na_
             login.Show();
             this.Hide();
         }
+        private void LoadSubjects()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter("F_AllSub", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dgvSubjects.DataSource = dt;
+
+                dgvSubjects.ReadOnly = false;
+                if (dgvSubjects.Columns.Contains("Active"))
+                    dgvSubjects.Columns["Active"].ReadOnly = false;
+            }
+        }
+        private void CountSubjects()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("F_CountActiveSubjects", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                int count = (int)cmd.ExecuteScalar();
+                lblActiveSubj.Text = $"Active Subjects: {count}";
+            }
+        }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnadd_Click(object sender, EventArgs e)
         {
 
         }
