@@ -213,5 +213,6 @@ namespace SQL_FINAL_Kapoy_na_
                 LoadSubjects();
                 CountSubjects();
             }
+        }
     }
 }

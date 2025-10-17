@@ -87,23 +87,7 @@ namespace SQL_FINAL_Kapoy_na_
                 cmd.Parameters.AddWithValue("@SubjectName", txtSubName.Text);
                 cmd.ExecuteNonQuery();
 
-                // Get SubjectID of the newly added subject
-                SqlCommand getID = new SqlCommand("SELECT IDENT_CURRENT('Subjects')", con);
-                int subjectID = Convert.ToInt32(getID.ExecuteScalar());
-
-                // Link Teacher to Subject
-                SqlCommand linkTeacher = new SqlCommand("INSERT INTO TeacherSubjects (TeacherID, SubjectID) VALUES (@TID, @SID)", con);
-                linkTeacher.Parameters.AddWithValue("@TID", teacherID);
-                linkTeacher.Parameters.AddWithValue("@SID", subjectID);
-                linkTeacher.ExecuteNonQuery();
-
-                // Link Student to Subject
-                SqlCommand linkStudent = new SqlCommand("INSERT INTO StudentSubjects (StudentID, SubjectID) VALUES (@STID, @SID)", con);
-                linkStudent.Parameters.AddWithValue("@STID", studentID);
-                linkStudent.Parameters.AddWithValue("@SID", subjectID);
-                linkStudent.ExecuteNonQuery();
-
-                // 5️⃣ Log creation
+                // Log creation
                 AddLog("CREATE", $"Added Subject {txtSubCode.Text} ({txtSubName.Text})");
 
                 MessageBox.Show("Subject added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

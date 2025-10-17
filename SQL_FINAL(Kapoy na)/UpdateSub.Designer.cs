@@ -30,15 +30,15 @@
         {
             this.label12 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            this.cmbDepartment = new System.Windows.Forms.ComboBox();
-            this.cmbSub = new System.Windows.Forms.ComboBox();
+            this.cmbStudents = new System.Windows.Forms.ComboBox();
+            this.cmbTeacher = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtLastN = new System.Windows.Forms.TextBox();
+            this.txtSubName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtFirstN = new System.Windows.Forms.TextBox();
+            this.txtSubCode = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -66,27 +66,28 @@
             this.btnSave.TabIndex = 183;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // cmbDepartment
+            // cmbStudents
             // 
-            this.cmbDepartment.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Items.AddRange(new object[] {
+            this.cmbStudents.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbStudents.FormattingEnabled = true;
+            this.cmbStudents.Items.AddRange(new object[] {
             "IT Department",
             "Business Administration",
             "Computer Science",
             "Education",
             "Engineering"});
-            this.cmbDepartment.Location = new System.Drawing.Point(509, 201);
-            this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(126, 26);
-            this.cmbDepartment.TabIndex = 182;
+            this.cmbStudents.Location = new System.Drawing.Point(509, 201);
+            this.cmbStudents.Name = "cmbStudents";
+            this.cmbStudents.Size = new System.Drawing.Size(126, 26);
+            this.cmbStudents.TabIndex = 182;
             // 
-            // cmbSub
+            // cmbTeacher
             // 
-            this.cmbSub.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSub.FormattingEnabled = true;
-            this.cmbSub.Items.AddRange(new object[] {
+            this.cmbTeacher.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTeacher.FormattingEnabled = true;
+            this.cmbTeacher.Items.AddRange(new object[] {
             "DASTRU - Data Structures and Algorithms",
             "INMANA - Information Management",
             "EVEDRI - Event Driven Programming",
@@ -94,10 +95,10 @@
             "UNDSLF - Understanding the Self",
             "PAFIT4 - Sports and Recreation",
             "GEEL03 - Living in the IT Era"});
-            this.cmbSub.Location = new System.Drawing.Point(509, 137);
-            this.cmbSub.Name = "cmbSub";
-            this.cmbSub.Size = new System.Drawing.Size(126, 26);
-            this.cmbSub.TabIndex = 181;
+            this.cmbTeacher.Location = new System.Drawing.Point(509, 137);
+            this.cmbTeacher.Name = "cmbTeacher";
+            this.cmbTeacher.Size = new System.Drawing.Size(126, 26);
+            this.cmbTeacher.TabIndex = 181;
             // 
             // label11
             // 
@@ -129,16 +130,16 @@
             this.panel2.Size = new System.Drawing.Size(167, 1);
             this.panel2.TabIndex = 178;
             // 
-            // txtLastN
+            // txtSubName
             // 
-            this.txtLastN.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtLastN.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtLastN.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastN.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtLastN.Location = new System.Drawing.Point(186, 201);
-            this.txtLastN.Name = "txtLastN";
-            this.txtLastN.Size = new System.Drawing.Size(167, 19);
-            this.txtLastN.TabIndex = 177;
+            this.txtSubName.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtSubName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSubName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtSubName.Location = new System.Drawing.Point(186, 201);
+            this.txtSubName.Name = "txtSubName";
+            this.txtSubName.Size = new System.Drawing.Size(167, 19);
+            this.txtSubName.TabIndex = 177;
             // 
             // panel1
             // 
@@ -159,16 +160,16 @@
             this.label4.TabIndex = 175;
             this.label4.Text = "Subject Name:";
             // 
-            // txtFirstN
+            // txtSubCode
             // 
-            this.txtFirstN.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtFirstN.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFirstN.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstN.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtFirstN.Location = new System.Drawing.Point(186, 140);
-            this.txtFirstN.Name = "txtFirstN";
-            this.txtFirstN.Size = new System.Drawing.Size(167, 19);
-            this.txtFirstN.TabIndex = 174;
+            this.txtSubCode.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtSubCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSubCode.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubCode.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtSubCode.Location = new System.Drawing.Point(186, 140);
+            this.txtSubCode.Name = "txtSubCode";
+            this.txtSubCode.Size = new System.Drawing.Size(167, 19);
+            this.txtSubCode.TabIndex = 174;
             // 
             // label3
             // 
@@ -200,15 +201,15 @@
             this.ClientSize = new System.Drawing.Size(716, 352);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.cmbDepartment);
-            this.Controls.Add(this.cmbSub);
+            this.Controls.Add(this.cmbStudents);
+            this.Controls.Add(this.cmbTeacher);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.txtLastN);
+            this.Controls.Add(this.txtSubName);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtFirstN);
+            this.Controls.Add(this.txtSubCode);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -223,15 +224,15 @@
 
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.ComboBox cmbDepartment;
-        private System.Windows.Forms.ComboBox cmbSub;
+        private System.Windows.Forms.ComboBox cmbStudents;
+        private System.Windows.Forms.ComboBox cmbTeacher;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtLastN;
+        private System.Windows.Forms.TextBox txtSubName;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtFirstN;
+        private System.Windows.Forms.TextBox txtSubCode;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
     }
