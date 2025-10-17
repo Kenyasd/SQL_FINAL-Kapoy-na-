@@ -1,4 +1,4 @@
--- ================================================
+﻿-- ================================================
 -- Template generated from Template Explorer using:
 -- Create Procedure (New Menu).SQL
 --
@@ -33,17 +33,28 @@ CREATE PROCEDURE F_AddS
     @Course NVARCHAR(100)
 AS
 BEGIN
-    IF EXISTS (SELECT 1 FROM Students WHERE Username = @Username)
+    DECLARE @StudentID INT, @SubjectID INT;
+
+    --  Add Student
+    INSERT INTO Students (FirstName, LastName, Gender, Age, Address, Phone, Email, Department, Course, TermLevel, Username, [Password], Active)
+    VALUES (@FirstName, @LastName, @Gender, @Age, @Address, @Phone, @Email, @Department, @Course, @TermLevel, @Username, @Password, 1);
+
+    SET @StudentID = SCOPE_IDENTITY();
+
+    --  Find or create the subject
+    SELECT @SubjectID = SubjectID FROM Subjects WHERE SubjectName = @Subject;
+    IF @SubjectID IS NULL
     BEGIN
-        RAISERROR('Username already exists.', 16, 1);
-        RETURN;
+        INSERT INTO Subjects (SubjectCode, SubjectName, Active)
+        VALUES (@Subject, @Subject, 1);
+        SET @SubjectID = SCOPE_IDENTITY();
     END
 
-    INSERT INTO Students
-    (FirstName, LastName, Age, Address, Phone, Email, Username, [Password],
-     Gender, TermLevel, Department, Course)
-    VALUES
-    (@FirstName, @LastName, @Age, @Address, @Phone, @Email, @Username, @Password,
-     @Gender, @TermLevel, @Department, @Course);
+    --  Link student → subject
+    IF NOT EXISTS (SELECT 1 FROM StudentSubjects WHERE StudentID = @StudentID AND SubjectID = @SubjectID)
+    BEGIN
+        INSERT INTO StudentSubjects (StudentID, SubjectID)
+        VALUES (@StudentID, @SubjectID);
+    END
 END
 GO

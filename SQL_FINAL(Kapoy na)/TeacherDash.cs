@@ -184,7 +184,28 @@ namespace SQL_FINAL_Kapoy_na_
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
+            if (dgvTeachers.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a teacher to update.");
+                return;
+            }
 
+            DataGridViewRow row = dgvTeachers.SelectedRows[0];
+            int teacherID = Convert.ToInt32(row.Cells["TeacherID"].Value);
+
+            UpdateT update = new UpdateT(
+                teacherID,
+                row.Cells["FirstName"].Value.ToString(),
+                row.Cells["LastName"].Value.ToString(),
+                row.Cells["Gender"].Value.ToString(),
+                row.Cells["Department"].Value.ToString(),
+                row.Cells["Subject"].Value.ToString(),
+                row.Cells["Username"].Value.ToString(),
+                row.Cells["Password"].Value.ToString()
+            );
+
+            update.ShowDialog();
+            LoadTeachers(); // reload grid after editing
         }
 
         private void button8_Click(object sender, EventArgs e)

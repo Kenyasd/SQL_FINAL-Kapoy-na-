@@ -1,4 +1,4 @@
--- ================================================
+﻿-- ================================================
 -- Template generated from Template Explorer using:
 -- Create Procedure (New Menu).SQL
 --
@@ -28,7 +28,28 @@ CREATE PROCEDURE F_AddT
     @Password NVARCHAR(100)
 AS
 BEGIN
+    DECLARE @TeacherID INT, @SubjectID INT;
+
+    --  Add Teacher
     INSERT INTO Teachers (FirstName, LastName, Gender, Department, Subject, Username, [Password], Active)
     VALUES (@FirstName, @LastName, @Gender, @Department, @Subject, @Username, @Password, 1);
+
+    SET @TeacherID = SCOPE_IDENTITY();
+
+    --  Find or create the subject
+    SELECT @SubjectID = SubjectID FROM Subjects WHERE SubjectName = @Subject;
+    IF @SubjectID IS NULL
+    BEGIN
+        INSERT INTO Subjects (SubjectCode, SubjectName, Active)
+        VALUES (@Subject, @Subject, 1);
+        SET @SubjectID = SCOPE_IDENTITY();
+    END
+
+    --  Link teacher → subject
+    IF NOT EXISTS (SELECT 1 FROM TeacherSubjects WHERE TeacherID = @TeacherID AND SubjectID = @SubjectID)
+    BEGIN
+        INSERT INTO TeacherSubjects (TeacherID, SubjectID)
+        VALUES (@TeacherID, @SubjectID);
+    END
 END
 GO

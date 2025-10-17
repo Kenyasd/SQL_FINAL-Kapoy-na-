@@ -18,18 +18,15 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE F_AllSub
+CREATE PROCEDURE F_AssignTeacher
+    @TeacherID INT,
+    @SubjectID INT
 AS
 BEGIN
-    SELECT 
-        s.SubjectID,
-        s.SubjectCode,
-        s.SubjectName,
-        (SELECT COUNT(*) FROM TeacherSubjects ts WHERE ts.SubjectID = s.SubjectID) AS TeacherCount,
-        (SELECT COUNT(*) FROM StudentSubjects ss WHERE ss.SubjectID = s.SubjectID) AS StudentCount,
-        s.Active
-    FROM Subjects s
-    ORDER BY s.SubjectID DESC;
+    IF NOT EXISTS (SELECT 1 FROM TeacherSubjects WHERE TeacherID = @TeacherID AND SubjectID = @SubjectID)
+    BEGIN
+        INSERT INTO TeacherSubjects (TeacherID, SubjectID)
+        VALUES (@TeacherID, @SubjectID);
+    END
 END
 GO
-
