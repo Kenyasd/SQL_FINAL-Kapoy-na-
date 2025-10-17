@@ -77,6 +77,6 @@ INSERT INTO Subjects (SubjectCode, SubjectName) VALUES
 ('PAFIT4', 'Sports and Recreation'),
 ('GEEL03', 'GE Elective 3 (Living in the IT Era)');
 
-Drop Procedure F_AllTeachers  ;
+Drop Procedure F_UpdateSubject  ;
 DROP Table Teachers;
 EXEC sp_rename 'Students.IsActive', 'Active', 'COLUMN';
