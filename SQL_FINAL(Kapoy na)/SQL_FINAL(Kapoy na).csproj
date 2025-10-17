@@ -53,6 +53,12 @@
     <Compile Include="AddS.Designer.cs">
       <DependentUpon>AddS.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddSub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSub.Designer.cs">
+      <DependentUpon>AddSub.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,12 @@
     <Compile Include="UpdateS.Designer.cs">
       <DependentUpon>UpdateS.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateSub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateSub.Designer.cs">
+      <DependentUpon>UpdateSub.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +148,9 @@
     <Compile Include="User.cs" />
     <EmbeddedResource Include="AddS.resx">
       <DependentUpon>AddS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSub.resx">
+      <DependentUpon>AddSub.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddT.resx">
       <DependentUpon>AddT.cs</DependentUpon>
@@ -182,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateS.resx">
       <DependentUpon>UpdateS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateSub.resx">
+      <DependentUpon>UpdateSub.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateT.resx">
       <DependentUpon>UpdateT.cs</DependentUpon>
