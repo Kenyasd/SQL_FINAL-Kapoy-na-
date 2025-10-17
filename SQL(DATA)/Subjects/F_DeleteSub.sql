@@ -22,6 +22,8 @@ CREATE PROCEDURE F_DeleteSubject
     @SubjectID INT
 AS
 BEGIN
+    DELETE FROM TeacherSubjects WHERE SubjectID = @SubjectID;
+    DELETE FROM StudentSubjects WHERE SubjectID = @SubjectID;
     DELETE FROM Subjects WHERE SubjectID = @SubjectID;
-END
+END;
 GO

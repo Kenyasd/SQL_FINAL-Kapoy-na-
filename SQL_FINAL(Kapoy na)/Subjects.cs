@@ -115,18 +115,103 @@ namespace SQL_FINAL_Kapoy_na_
                 SqlCommand cmd = new SqlCommand("F_CountActiveSubjects", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 int count = (int)cmd.ExecuteScalar();
-                lblActiveSubj.Text = $"Active Subjects: {count}";
+                lblActSub.Text = $"Active Subjects: {count}";
+            }
+        }
+        private void dgvSubjects_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dgvSubjects.IsCurrentCellDirty)
+                dgvSubjects.CommitEdit(DataGridViewDataErrorContexts.Commit);
+        }
+        private void dgvSubjects_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvSubjects.Columns[e.ColumnIndex].Name == "Active")
+            {
+                int subjectID = Convert.ToInt32(dgvSubjects.Rows[e.RowIndex].Cells["SubjectID"].Value);
+                bool newStatus = Convert.ToBoolean(dgvSubjects.Rows[e.RowIndex].Cells["Active"].Value);
+
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("F_UpdateSubjectActive", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@SubjectID", subjectID);
+                    cmd.Parameters.AddWithValue("@Active", newStatus);
+                    cmd.ExecuteNonQuery();
+                }
+
+                CountSubjects();
             }
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("F_SearchSubject", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Keyword", txtSearch.Text);
 
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dgvSubjects.DataSource = dt;
+            }
         }
 
         private void btnadd_Click(object sender, EventArgs e)
         {
-
+            AddSubject add = new AddSubject();
+            add.ShowDialog();
+            LoadSubjects();
+            CountSubjects();
         }
+
+        private void btnupdate_Click(object sender, EventArgs e)
+        {
+            if (dgvSubjects.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a subject to update.");
+                return;
+            }
+
+            int subjectID = Convert.ToInt32(dgvSubjects.SelectedRows[0].Cells["SubjectID"].Value);
+            string code = dgvSubjects.SelectedRows[0].Cells["SubjectCode"].Value.ToString();
+            string name = dgvSubjects.SelectedRows[0].Cells["SubjectName"].Value.ToString();
+            bool active = Convert.ToBoolean(dgvSubjects.SelectedRows[0].Cells["Active"].Value);
+
+            UpdateSubject upd = new UpdateSubject(subjectID, code, name, active);
+            upd.ShowDialog();
+            LoadSubjects();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvSubjects.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a subject to delete.");
+                return;
+            }
+
+            int subjectID = Convert.ToInt32(dgvSubjects.SelectedRows[0].Cells["SubjectID"].Value);
+
+            DialogResult dr = MessageBox.Show("Are you sure you want to delete this subject?",
+                                              "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("F_DeleteSubject", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@SubjectID", subjectID);
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Subject deleted successfully!");
+                LoadSubjects();
+                CountSubjects();
+            }
     }
 }
