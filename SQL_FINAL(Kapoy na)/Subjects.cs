@@ -170,20 +170,17 @@ namespace SQL_FINAL_Kapoy_na_
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            if (dgvSubjects.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a subject to update.");
-                return;
-            }
-
             int subjectID = Convert.ToInt32(dgvSubjects.SelectedRows[0].Cells["SubjectID"].Value);
             string code = dgvSubjects.SelectedRows[0].Cells["SubjectCode"].Value.ToString();
             string name = dgvSubjects.SelectedRows[0].Cells["SubjectName"].Value.ToString();
+            string teacherName = dgvSubjects.SelectedRows[0].Cells["TeacherName"].Value.ToString();
+            string studentName = dgvSubjects.SelectedRows[0].Cells["StudentName"].Value.ToString();
             bool active = Convert.ToBoolean(dgvSubjects.SelectedRows[0].Cells["Active"].Value);
 
-            UpdateSub upd = new UpdateSub(subjectID, code, name, active);
+            UpdateSub upd = new UpdateSub(subjectID, code, name, teacherName, studentName);
             upd.ShowDialog();
             LoadSubjects();
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
