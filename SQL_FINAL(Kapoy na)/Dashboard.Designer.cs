@@ -85,7 +85,7 @@
             legend3.IsTextAutoFit = false;
             legend3.Name = "Legend1";
             this.chartTeachers.Legends.Add(legend3);
-            this.chartTeachers.Location = new System.Drawing.Point(400, 107);
+            this.chartTeachers.Location = new System.Drawing.Point(384, 108);
             this.chartTeachers.Name = "chartTeachers";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -109,7 +109,7 @@
             legend4.IsTextAutoFit = false;
             legend4.Name = "Legend1";
             this.chartStudents.Legends.Add(legend4);
-            this.chartStudents.Location = new System.Drawing.Point(45, 107);
+            this.chartStudents.Location = new System.Drawing.Point(29, 108);
             this.chartStudents.Name = "chartStudents";
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -289,7 +289,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(116, 107);
+            this.label1.Location = new System.Drawing.Point(102, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 32);
             this.label1.TabIndex = 15;
@@ -300,7 +300,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(465, 107);
+            this.label2.Location = new System.Drawing.Point(445, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 32);
             this.label2.TabIndex = 16;
