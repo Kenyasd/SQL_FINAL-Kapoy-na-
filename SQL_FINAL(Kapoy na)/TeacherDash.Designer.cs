@@ -40,18 +40,18 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
+            this.picProfile = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
             this.btnupdate = new System.Windows.Forms.Button();
             this.btnadd = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.picProfile = new System.Windows.Forms.PictureBox();
             this.lblActTeac = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -76,6 +76,7 @@
             // 
             // dgvTeachers
             // 
+            this.dgvTeachers.AllowUserToAddRows = false;
             this.dgvTeachers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -216,6 +217,16 @@
             this.lblName.TabIndex = 13;
             this.lblName.Text = "label2";
             // 
+            // picProfile
+            // 
+            this.picProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
+            this.picProfile.Location = new System.Drawing.Point(26, 21);
+            this.picProfile.Name = "picProfile";
+            this.picProfile.Size = new System.Drawing.Size(128, 76);
+            this.picProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picProfile.TabIndex = 2;
+            this.picProfile.TabStop = false;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(40)))), ((int)(((byte)(62)))));
@@ -289,16 +300,6 @@
             this.panel2.Size = new System.Drawing.Size(747, 567);
             this.panel2.TabIndex = 17;
             // 
-            // picProfile
-            // 
-            this.picProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
-            this.picProfile.Location = new System.Drawing.Point(26, 21);
-            this.picProfile.Name = "picProfile";
-            this.picProfile.Size = new System.Drawing.Size(128, 76);
-            this.picProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picProfile.TabIndex = 2;
-            this.picProfile.TabStop = false;
-            // 
             // lblActTeac
             // 
             this.lblActTeac.AutoSize = true;
@@ -326,10 +327,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).EndInit();
             this.ResumeLayout(false);
 
         }

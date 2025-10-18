@@ -41,28 +41,28 @@ namespace SQL_FINAL_Kapoy_na_
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                //con.Open();
-                //SqlDataAdapter da = new SqlDataAdapter("F_AllTeachers", con);
-                //da.SelectCommand.CommandType = CommandType.StoredProcedure;
-
-                //DataTable dt = new DataTable();
-                //da.Fill(dt);
-                //dgvTeachers.DataSource = dt;
-
-                //dgvTeachers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                //dgvTeachers.ReadOnly = false;
-                //dgvTeachers.Columns["TeacherID"].ReadOnly = true;
-                //dgvTeachers.Columns["Active"].ReadOnly = false;
-                //dgvTeachers.Columns["Active"].HeaderText = "Active";
-
                 con.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Teachers ORDER BY TeacherID DESC", con);
+                SqlDataAdapter da = new SqlDataAdapter("F_AllTeachers", con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dgvTeachers.DataSource = dt;
 
+                dgvTeachers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvTeachers.ReadOnly = false;
                 dgvTeachers.Columns["TeacherID"].ReadOnly = true;
                 dgvTeachers.Columns["Active"].ReadOnly = false;
+                dgvTeachers.Columns["Active"].HeaderText = "Active";
+
+                //con.Open();
+                //SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Teachers ORDER BY TeacherID DESC", con);
+                //DataTable dt = new DataTable();
+                //da.Fill(dt);
+                //dgvTeachers.DataSource = dt;
+
+                //dgvTeachers.Columns["TeacherID"].ReadOnly = true;
+                //dgvTeachers.Columns["Active"].ReadOnly = false;
 
             }
         }

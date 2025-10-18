@@ -49,7 +49,7 @@ namespace SQL_FINAL_Kapoy_na_
                 cmd.Parameters.AddWithValue("@FirstName", txtFirstN.Text);
                 cmd.Parameters.AddWithValue("@LastName", txtLastN.Text);
                 cmd.Parameters.AddWithValue("@Gender", gender);
-                cmd.Parameters.AddWithValue("@Department", cmbSub.Text);
+                cmd.Parameters.AddWithValue("@Department", cmbDepartment.Text);
                 cmd.Parameters.AddWithValue("@Subject", cmbSub.Text);
                 cmd.Parameters.AddWithValue("@Username", txtUser.Text);
                 cmd.Parameters.AddWithValue("@Password", txtPass.Text);
