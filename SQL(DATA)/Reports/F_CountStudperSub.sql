@@ -18,17 +18,12 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE F_StudentsPerTeacher
+CREATE PROCEDURE F_CountStudentsPerSubject
 AS
 BEGIN
-    SELECT t.TeacherID, t.FirstName + ' ' + t.LastName AS TeacherName,
-           s.SubjectName, st.StudentID, st.FirstName + ' ' + st.LastName AS StudentName
-    FROM TeacherSubjects ts
-    JOIN Teachers t ON ts.TeacherID = t.TeacherID
-    JOIN Subjects s ON ts.SubjectID = s.SubjectID
-    JOIN StudentSubjects ss ON s.SubjectID = ss.SubjectID
-    JOIN Students st ON ss.StudentID = st.StudentID
-    WHERE t.Active = 1 AND st.Active = 1
-    ORDER BY TeacherName, SubjectName, StudentName;
+    SELECT s.SubjectName, COUNT(ss.StudentID) AS StudentCount
+    FROM Subjects s
+    LEFT JOIN StudentSubjects ss ON s.SubjectID = ss.SubjectID
+    GROUP BY s.SubjectName;
 END;
 GO
