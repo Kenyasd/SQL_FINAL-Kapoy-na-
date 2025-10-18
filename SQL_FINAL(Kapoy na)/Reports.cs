@@ -91,7 +91,7 @@ namespace SQL_FINAL_Kapoy_na_
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand(procedure, con);
+                SqlCommand cmd = new SqlCommand("F_CountActS", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 con.Open();
                 return Convert.ToInt32(cmd.ExecuteScalar());

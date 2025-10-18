@@ -28,34 +28,35 @@ CREATE PROCEDURE F_AddS
     @Email NVARCHAR(100),
     @Department NVARCHAR(100),
     @Course NVARCHAR(100),
-    @TermLevel NVARCHAR(50),
-    @Subject NVARCHAR(100),
+    @TermLevel NVARCHAR(50),    
     @Username NVARCHAR(50),
     @Password NVARCHAR(100)
 AS
 BEGIN
     DECLARE @StudentID INT, @SubjectID INT;
 
-    -- 1️⃣ Add Student
-    INSERT INTO Students (FirstName, LastName, Gender, Age, Address, Phone, Email, Department, Course, TermLevel, Username, [Password], Active)
-    VALUES (@FirstName, @LastName, @Gender, @Age, @Address, @Phone, @Email, @Department, @Course, @TermLevel, @Username, @Password, 1);
+    --  Add Student
+    INSERT INTO Students 
+    (FirstName, LastName, Gender, Age, Address, Phone, Email, Department, Course, TermLevel, Username, [Password], Active)
+    VALUES 
+    (@FirstName, @LastName, @Gender, @Age, @Address, @Phone, @Email, @Department, @Course, @TermLevel, @Username, @Password, 1);
 
-    SET @StudentID = SCOPE_IDENTITY();
+    --SET @StudentID = SCOPE_IDENTITY();
 
-    -- 2️⃣ Find or create the subject
-    SELECT @SubjectID = SubjectID FROM Subjects WHERE SubjectName = @Subject;
-    IF @SubjectID IS NULL
-    BEGIN
-        INSERT INTO Subjects (SubjectCode, SubjectName, Active)
-        VALUES (@Subject, @Subject, 1);
-        SET @SubjectID = SCOPE_IDENTITY();
-    END
+    ----  Find or create the subject
+    --SELECT @SubjectID = SubjectID FROM Subjects WHERE SubjectName = @Subject;
+    --IF @SubjectID IS NULL
+    --BEGIN
+    --    INSERT INTO Subjects (SubjectCode, SubjectName, Active)
+    --    VALUES (@Subject, @Subject, 1);
+    --    SET @SubjectID = SCOPE_IDENTITY();
+    --END
 
-    -- 3️⃣ Link student → subject
-    IF NOT EXISTS (SELECT 1 FROM StudentSubjects WHERE StudentID = @StudentID AND SubjectID = @SubjectID)
-    BEGIN
-        INSERT INTO StudentSubjects (StudentID, SubjectID)
-        VALUES (@StudentID, @SubjectID);
-    END
+    ----  Link student → subject
+    --IF NOT EXISTS (SELECT 1 FROM StudentSubjects WHERE StudentID = @StudentID AND SubjectID = @SubjectID)
+    --BEGIN
+    --    INSERT INTO StudentSubjects (StudentID, SubjectID)
+    --    VALUES (@StudentID, @SubjectID);
+    --END
 END
 GO

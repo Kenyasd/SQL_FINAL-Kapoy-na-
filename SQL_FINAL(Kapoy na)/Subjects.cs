@@ -112,7 +112,7 @@ namespace SQL_FINAL_Kapoy_na_
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("F_CountActiveSubjects", con);
+                SqlCommand cmd = new SqlCommand("F_CountActSubjects", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 int count = (int)cmd.ExecuteScalar();
                 lblActSub.Text = $"Active Subjects: {count}";
