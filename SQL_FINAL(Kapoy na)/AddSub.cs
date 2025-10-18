@@ -85,6 +85,8 @@ namespace SQL_FINAL_Kapoy_na_
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@SubjectCode", txtSubCode.Text);
                 cmd.Parameters.AddWithValue("@SubjectName", txtSubName.Text);
+                cmd.Parameters.AddWithValue("@TeacherID", teacherID);
+                cmd.Parameters.AddWithValue("@StudentID", studentID);
                 cmd.ExecuteNonQuery();
 
                 // Log creation
