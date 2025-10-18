@@ -21,7 +21,7 @@ GO
 CREATE PROCEDURE F_AllLogs
 AS
 BEGIN
-    SELECT LogID, ActionType, Description, LogDate
+    SELECT LogID, ActionType, Description, DateLogged
     FROM Logs
     ORDER BY LogID DESC;
 END;
