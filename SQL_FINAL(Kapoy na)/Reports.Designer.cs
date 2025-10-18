@@ -46,11 +46,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblActStud = new System.Windows.Forms.Label();
+            this.lblActSub = new System.Windows.Forms.Label();
+            this.lblActTeach = new System.Windows.Forms.Label();
+            this.lblStudPerSub = new System.Windows.Forms.Label();
+            this.lblStudPerTeach = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picProfile)).BeginInit();
@@ -213,11 +213,11 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(40)))), ((int)(((byte)(62)))));
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.lblStudPerTeach);
+            this.panel2.Controls.Add(this.lblStudPerSub);
+            this.panel2.Controls.Add(this.lblActTeach);
+            this.panel2.Controls.Add(this.lblActSub);
+            this.panel2.Controls.Add(this.lblActStud);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
@@ -295,60 +295,60 @@
             this.label6.TabIndex = 18;
             this.label6.Text = "Subjects:";
             // 
-            // label7
+            // lblActStud
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(275, 119);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 24);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "00";
+            this.lblActStud.AutoSize = true;
+            this.lblActStud.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActStud.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblActStud.Location = new System.Drawing.Point(275, 119);
+            this.lblActStud.Name = "lblActStud";
+            this.lblActStud.Size = new System.Drawing.Size(34, 24);
+            this.lblActStud.TabIndex = 19;
+            this.lblActStud.Text = "00";
             // 
-            // label8
+            // lblActSub
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(275, 234);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(34, 24);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "00";
+            this.lblActSub.AutoSize = true;
+            this.lblActSub.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActSub.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblActSub.Location = new System.Drawing.Point(275, 234);
+            this.lblActSub.Name = "lblActSub";
+            this.lblActSub.Size = new System.Drawing.Size(34, 24);
+            this.lblActSub.TabIndex = 20;
+            this.lblActSub.Text = "00";
             // 
-            // label9
+            // lblActTeach
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(275, 173);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(34, 24);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "00";
+            this.lblActTeach.AutoSize = true;
+            this.lblActTeach.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActTeach.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblActTeach.Location = new System.Drawing.Point(275, 173);
+            this.lblActTeach.Name = "lblActTeach";
+            this.lblActTeach.Size = new System.Drawing.Size(34, 24);
+            this.lblActTeach.TabIndex = 20;
+            this.lblActTeach.Text = "00";
             // 
-            // label10
+            // lblStudPerSub
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.Location = new System.Drawing.Point(275, 302);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 24);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "00";
+            this.lblStudPerSub.AutoSize = true;
+            this.lblStudPerSub.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudPerSub.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblStudPerSub.Location = new System.Drawing.Point(275, 302);
+            this.lblStudPerSub.Name = "lblStudPerSub";
+            this.lblStudPerSub.Size = new System.Drawing.Size(34, 24);
+            this.lblStudPerSub.TabIndex = 21;
+            this.lblStudPerSub.Text = "00";
             // 
-            // label11
+            // lblStudPerTeach
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label11.Location = new System.Drawing.Point(275, 369);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 24);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "00";
+            this.lblStudPerTeach.AutoSize = true;
+            this.lblStudPerTeach.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudPerTeach.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblStudPerTeach.Location = new System.Drawing.Point(275, 369);
+            this.lblStudPerTeach.Name = "lblStudPerTeach";
+            this.lblStudPerTeach.Size = new System.Drawing.Size(34, 24);
+            this.lblStudPerTeach.TabIndex = 22;
+            this.lblStudPerTeach.Text = "00";
             // 
             // Reports
             // 
@@ -392,10 +392,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblStudPerTeach;
+        private System.Windows.Forms.Label lblStudPerSub;
+        private System.Windows.Forms.Label lblActTeach;
+        private System.Windows.Forms.Label lblActSub;
+        private System.Windows.Forms.Label lblActStud;
     }
 }

@@ -38,16 +38,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
+            this.picProfile = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvLogs = new System.Windows.Forms.DataGridView();
-            this.picProfile = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -193,6 +193,16 @@
             this.lblName.TabIndex = 13;
             this.lblName.Text = "label2";
             // 
+            // picProfile
+            // 
+            this.picProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
+            this.picProfile.Location = new System.Drawing.Point(26, 21);
+            this.picProfile.Name = "picProfile";
+            this.picProfile.Size = new System.Drawing.Size(128, 76);
+            this.picProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picProfile.TabIndex = 2;
+            this.picProfile.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(40)))), ((int)(((byte)(62)))));
@@ -211,6 +221,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(139, 25);
             this.txtSearch.TabIndex = 13;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // label1
             // 
@@ -238,16 +249,6 @@
             this.dgvLogs.Size = new System.Drawing.Size(731, 413);
             this.dgvLogs.TabIndex = 11;
             // 
-            // picProfile
-            // 
-            this.picProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(35)))), ((int)(((byte)(62)))));
-            this.picProfile.Location = new System.Drawing.Point(26, 21);
-            this.picProfile.Name = "picProfile";
-            this.picProfile.Size = new System.Drawing.Size(128, 76);
-            this.picProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picProfile.TabIndex = 2;
-            this.picProfile.TabStop = false;
-            // 
             // LOGS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,10 +264,10 @@
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picProfile)).EndInit();
             this.ResumeLayout(false);
 
         }

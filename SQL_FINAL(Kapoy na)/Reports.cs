@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,7 +32,7 @@ namespace SQL_FINAL_Kapoy_na_
             {
                 picProfile.Image = null; // or a default picture
             }
-            CountAll();
+            LoadReportCounts();
         }
 
         private void btndashB_Click(object sender, EventArgs e)
@@ -86,5 +87,39 @@ namespace SQL_FINAL_Kapoy_na_
             login.Show();
             this.Hide();
         }
+        private int GetCount(string procedure)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(procedure, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+        private string GetGroupedCount(string procedure)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlDataAdapter da = new SqlDataAdapter(procedure, con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+               
+                return dt.Rows.Count.ToString();
+            }
+        }
+        private void LoadReportCounts()
+        {
+            lblActStud.Text = GetCount("F_CountActiveStudents").ToString();
+            lblActTeach.Text = GetCount("F_CountActiveTeachers").ToString();
+            lblActSub.Text = GetCount("F_CountActiveSubjects").ToString();
+
+            lblStudPerSub.Text = GetGroupedCount("F_CountStudentsPerSubject");
+            lblStudPerTeach.Text = GetGroupedCount("F_CountStudentsPerTeacher");
+        }
+
     }
 }
