@@ -25,6 +25,16 @@ CREATE PROCEDURE F_AddSubject
     @StudentID INT = NULL
 AS
 BEGIN
+
+    SET NOCOUNT ON;
+
+    -- Prevent duplicate subject codes
+    IF EXISTS (SELECT 1 FROM Subjects WHERE SubjectCode = @SubjectCode)
+    BEGIN
+        RAISERROR('Subject code already exists!', 16, 1);
+        RETURN;
+    END
+
     INSERT INTO Subjects (SubjectCode, SubjectName)
     VALUES (@SubjectCode, @SubjectName);
 
