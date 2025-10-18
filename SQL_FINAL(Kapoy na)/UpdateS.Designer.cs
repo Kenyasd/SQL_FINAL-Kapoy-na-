@@ -497,6 +497,7 @@
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UpdateS";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateS";
             this.Load += new System.EventHandler(this.UpdateS_Load);
             this.ResumeLayout(false);

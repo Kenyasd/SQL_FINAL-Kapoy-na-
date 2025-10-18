@@ -22,6 +22,10 @@ CREATE PROCEDURE F_DeleteTeacher
     @TeacherID INT
 AS
 BEGIN
+    -- Delete related entries first
+    DELETE FROM TeacherSubjects WHERE TeacherID = @TeacherID;
+
+    -- Then delete the teacher
     DELETE FROM Teachers WHERE TeacherID = @TeacherID;
-END
+END;
 GO
