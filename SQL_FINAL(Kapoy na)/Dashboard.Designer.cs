@@ -35,8 +35,8 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.ActChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.UsersChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartTeachers = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartStudents = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lbl = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -50,8 +50,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblName = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ActChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UsersChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTeachers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartStudents)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picProfile)).BeginInit();
             this.panel3.SuspendLayout();
@@ -60,61 +60,61 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
-            this.panel2.Controls.Add(this.ActChart);
-            this.panel2.Controls.Add(this.UsersChart);
+            this.panel2.Controls.Add(this.chartTeachers);
+            this.panel2.Controls.Add(this.chartStudents);
             this.panel2.Controls.Add(this.lbl);
             this.panel2.Location = new System.Drawing.Point(177, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(746, 567);
             this.panel2.TabIndex = 8;
             // 
-            // ActChart
+            // chartTeachers
             // 
-            this.ActChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
-            this.ActChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
+            this.chartTeachers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
+            this.chartTeachers.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
             chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
             chartArea1.Name = "ChartArea1";
-            this.ActChart.ChartAreas.Add(chartArea1);
+            this.chartTeachers.ChartAreas.Add(chartArea1);
             legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
             legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             legend1.ForeColor = System.Drawing.Color.White;
             legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
-            this.ActChart.Legends.Add(legend1);
-            this.ActChart.Location = new System.Drawing.Point(400, 107);
-            this.ActChart.Name = "ActChart";
+            this.chartTeachers.Legends.Add(legend1);
+            this.chartTeachers.Location = new System.Drawing.Point(400, 107);
+            this.chartTeachers.Name = "chartTeachers";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.ActChart.Series.Add(series1);
-            this.ActChart.Size = new System.Drawing.Size(333, 350);
-            this.ActChart.TabIndex = 14;
-            this.ActChart.Text = "chart1";
+            this.chartTeachers.Series.Add(series1);
+            this.chartTeachers.Size = new System.Drawing.Size(333, 350);
+            this.chartTeachers.TabIndex = 14;
+            this.chartTeachers.Text = "chart1";
             // 
-            // UsersChart
+            // chartStudents
             // 
-            this.UsersChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
-            this.UsersChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
+            this.chartStudents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
+            this.chartStudents.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
             chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
             chartArea2.Name = "ChartArea1";
-            this.UsersChart.ChartAreas.Add(chartArea2);
+            this.chartStudents.ChartAreas.Add(chartArea2);
             legend2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
             legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             legend2.ForeColor = System.Drawing.Color.White;
             legend2.IsTextAutoFit = false;
             legend2.Name = "Legend1";
-            this.UsersChart.Legends.Add(legend2);
-            this.UsersChart.Location = new System.Drawing.Point(45, 107);
-            this.UsersChart.Name = "UsersChart";
+            this.chartStudents.Legends.Add(legend2);
+            this.chartStudents.Location = new System.Drawing.Point(45, 107);
+            this.chartStudents.Name = "chartStudents";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series2.Legend = "Legend1";
             series2.Name = "Series1";
-            this.UsersChart.Series.Add(series2);
-            this.UsersChart.Size = new System.Drawing.Size(333, 350);
-            this.UsersChart.TabIndex = 13;
-            this.UsersChart.Text = "chart1";
+            this.chartStudents.Series.Add(series2);
+            this.chartStudents.Size = new System.Drawing.Size(333, 350);
+            this.chartStudents.TabIndex = 13;
+            this.chartStudents.Text = "chart1";
             // 
             // lbl
             // 
@@ -294,8 +294,8 @@
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ActChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UsersChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTeachers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartStudents)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picProfile)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -318,8 +318,8 @@
         private System.Windows.Forms.Button btnlogs;
         private System.Windows.Forms.PictureBox picProfile;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart UsersChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartStudents;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.DataVisualization.Charting.Chart ActChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTeachers;
     }
 }

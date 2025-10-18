@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SQL_FINAL_Kapoy_na_
 {
     public partial class Dashboard : Form
-    {     
+    {
+        string connectionString = @"Data Source=DESKTOP-IBHAJPM\SQLEXPRESS;Initial Catalog=FINAL_DB;Integrated Security=True";
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -51,11 +54,59 @@ namespace SQL_FINAL_Kapoy_na_
             {
                 picProfile.Image = null;
             }
+            LoadStudentChart();
+            LoadTeacherChart();
         }
 
         public Dashboard()
         {
             InitializeComponent();
+        }
+        private void LoadStudentChart()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("F_CStudents", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    int active = Convert.ToInt32(reader["ActiveStudents"]);
+                    int inactive = Convert.ToInt32(reader["InactiveStudents"]);
+
+                    chartStudents.Series.Clear();
+                    Series series = new Series("Students");
+                    series.ChartType = SeriesChartType.Pie;
+                    series.Points.AddXY("Active", active);
+                    series.Points.AddXY("Inactive", inactive);
+                    chartStudents.Series.Add(series);
+                }
+            }
+        }
+        private void LoadTeacherChart()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("F_CTeachers", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    int active = Convert.ToInt32(reader["ActiveTeachers"]);
+                    int inactive = Convert.ToInt32(reader["InactiveTeachers"]);
+
+                    chartTeachers.Series.Clear();
+                    Series series = new Series("Teachers");
+                    series.ChartType = SeriesChartType.Pie;
+                    series.Points.AddXY("Active", active);
+                    series.Points.AddXY("Inactive", inactive);
+                    chartTeachers.Series.Add(series);
+                }
+            }
         }
 
         private void btndashboard_Click(object sender, EventArgs e)
