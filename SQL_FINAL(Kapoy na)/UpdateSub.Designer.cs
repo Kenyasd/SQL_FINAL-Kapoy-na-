@@ -53,6 +53,7 @@
             this.label12.Size = new System.Drawing.Size(41, 32);
             this.label12.TabIndex = 184;
             this.label12.Text = "←";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // btnSave
             // 
@@ -214,6 +215,7 @@
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UpdateSub";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateSub";
             this.ResumeLayout(false);
             this.PerformLayout();

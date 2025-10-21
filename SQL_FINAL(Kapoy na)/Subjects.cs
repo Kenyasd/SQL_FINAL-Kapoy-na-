@@ -18,6 +18,7 @@ namespace SQL_FINAL_Kapoy_na_
         {
             InitializeComponent();
             dgvSubjects.CurrentCellDirtyStateChanged += dgvSubjects_CurrentCellDirtyStateChanged;
+            dgvSubjects.CellValueChanged += dgvSubjects_CellValueChanged;
         }
 
         string connectionString = @"Data Source=DESKTOP-IBHAJPM\SQLEXPRESS;Initial Catalog=FINAL_DB;Integrated Security=True";
@@ -104,7 +105,9 @@ namespace SQL_FINAL_Kapoy_na_
 
                 dgvSubjects.ReadOnly = false;
                 if (dgvSubjects.Columns.Contains("Active"))
+                {
                     dgvSubjects.Columns["Active"].ReadOnly = false;
+                }
             }
         }
         private void CountSubjects()
@@ -133,7 +136,7 @@ namespace SQL_FINAL_Kapoy_na_
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("F_UpdateSubjectActive", con);
+                    SqlCommand cmd = new SqlCommand("F_UpdateActiveSubject", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@SubjectID", subjectID);
                     cmd.Parameters.AddWithValue("@Active", newStatus);
@@ -170,6 +173,12 @@ namespace SQL_FINAL_Kapoy_na_
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
+            if (dgvSubjects.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a subject to update.");
+                return;
+            }
+
             int subjectID = Convert.ToInt32(dgvSubjects.SelectedRows[0].Cells["SubjectID"].Value);
             string code = dgvSubjects.SelectedRows[0].Cells["SubjectCode"].Value.ToString();
             string name = dgvSubjects.SelectedRows[0].Cells["SubjectName"].Value.ToString();

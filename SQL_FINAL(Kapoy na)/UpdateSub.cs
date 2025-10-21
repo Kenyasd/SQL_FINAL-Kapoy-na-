@@ -93,6 +93,7 @@ namespace SQL_FINAL_Kapoy_na_
                 cmd.Parameters.AddWithValue("@SubjectID", subjectID);
                 cmd.Parameters.AddWithValue("@SubjectCode", txtSubCode.Text);
                 cmd.Parameters.AddWithValue("@SubjectName", txtSubName.Text);
+                cmd.Parameters.AddWithValue("@Active", 1);
                 cmd.ExecuteNonQuery();
 
                 // Update linked Teacher
@@ -121,6 +122,11 @@ namespace SQL_FINAL_Kapoy_na_
                 MessageBox.Show("Subject updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

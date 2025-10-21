@@ -88,6 +88,6 @@ VALUES (3, 2);
 
 SELECT * FROM Subjects
 
-Drop Procedure F_DeleteTeacher ;
+Drop Procedure F_UpdateSubject ;
 DROP Table StudentSubjects;
 EXEC sp_rename 'Students.IsActive', 'Active', 'COLUMN';
