@@ -14,18 +14,23 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class StudentDash : Form
     {
+        // Database connection string
         string connectionString = DBConnection.ConnectionString;
 
         public StudentDash()
         {
             InitializeComponent();
+            // Real-time updating of "Active" checkbox in DataGridView
             dgvStudents.CurrentCellDirtyStateChanged += dgvStudents_CurrentCellDirtyStateChanged;
+            dgvStudents.CellValueChanged += dgvStudents_CellValueChanged;
         }         
 
         private void StudentDash_Load(object sender, EventArgs e)
         {
+            // Display current user’s name
             lblName.Text = $"{UserSession.FirstName} {UserSession.LastName}";
 
+            // Display profile picture (if exists)
             if (!string.IsNullOrEmpty(UserSession.ProfilePath) && File.Exists(UserSession.ProfilePath))
             {
                 picProfile.Image = new Bitmap(UserSession.ProfilePath);
@@ -34,12 +39,12 @@ namespace SQL_FINAL_Kapoy_na_
             {
                 picProfile.Image = null; 
             }
-            dgvStudents.CurrentCellDirtyStateChanged += dgvStudents_CurrentCellDirtyStateChanged;
-            dgvStudents.CellValueChanged += dgvStudents_CellValueChanged;
+            // Load students and count active ones
             LoadStudents();
             CountStudents();
         }
 
+        //Add Students
         private void btnadd_Click(object sender, EventArgs e)
         {
             AddS add = new AddS();
@@ -50,6 +55,7 @@ namespace SQL_FINAL_Kapoy_na_
 
         }
 
+        //Update Students
         private void btnupdate_Click(object sender, EventArgs e)
         {
             if (dgvStudents.SelectedRows.Count == 0)
@@ -58,13 +64,21 @@ namespace SQL_FINAL_Kapoy_na_
                 return;
             }
 
-            int studentID = Convert.ToInt32(dgvStudents.SelectedRows[0].Cells["StudentID"].Value);
+            DataGridViewRow row = dgvStudents.SelectedRows[0];
+            int studentID = Convert.ToInt32(row.Cells["StudentID"].Value);
+            string firstName = row.Cells["FirstName"].Value.ToString();
+            string lastName = row.Cells["LastName"].Value.ToString();
 
+            // Open the Update Form 
             UpdateS update = new UpdateS(studentID);
             update.ShowDialog();
             LoadStudents();
+
+            // Log the update action
+            AddLog("UPDATE", $"Updated student record: {firstName} {lastName} (ID: {studentID})");
         }
 
+        //Delete Students
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvStudents.SelectedRows.Count == 0)
@@ -93,6 +107,8 @@ namespace SQL_FINAL_Kapoy_na_
                 CountStudents();
             }
         }
+
+        //Log Actions (Create, Update, Delete)
         private void AddLog(string action, string desc)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -106,6 +122,7 @@ namespace SQL_FINAL_Kapoy_na_
             }
         }
 
+        //Search Students
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -122,6 +139,7 @@ namespace SQL_FINAL_Kapoy_na_
             }       
         }
 
+        //Handle Active Status Change
         private void dgvStudents_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dgvStudents.Columns[e.ColumnIndex].Name == "Active")
@@ -144,26 +162,7 @@ namespace SQL_FINAL_Kapoy_na_
             }
         }
 
-        private void dgvStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && dgvStudents.Columns[e.ColumnIndex].Name == "Active")
-            {
-                int studentID = Convert.ToInt32(dgvStudents.Rows[e.RowIndex].Cells["StudentID"].Value);
-                bool newStatus = Convert.ToBoolean(dgvStudents.Rows[e.RowIndex].Cells["Active"].Value);
-
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand("F_ActiveStatus", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@StudentID", studentID);
-                    cmd.Parameters.AddWithValue("@Active", newStatus);
-                    cmd.ExecuteNonQuery();
-                }
-
-                AddLog("UPDATE", $"Set student ID {studentID} active status to {newStatus}");
-            }
-        }
+        //Edit on Checkbox Toggle
         private void dgvStudents_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             if (dgvStudents.IsCurrentCellDirty)
@@ -171,6 +170,8 @@ namespace SQL_FINAL_Kapoy_na_
                 dgvStudents.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
+
+        //Load Students from Database
         private void LoadStudents()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -188,6 +189,7 @@ namespace SQL_FINAL_Kapoy_na_
                 dgvStudents.Columns["Active"].ReadOnly = false;
             }
         }
+        //Count Active Students
         private void CountStudents()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -200,6 +202,7 @@ namespace SQL_FINAL_Kapoy_na_
             }
         }
 
+        //Navigation Buttons
         private void btndashB_Click(object sender, EventArgs e)
         {
             Dashboard dash = new Dashboard();

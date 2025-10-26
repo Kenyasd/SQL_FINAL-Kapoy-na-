@@ -14,10 +14,14 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class Subjects : Form
     {
+        // Database connection string
         string connectionString = DBConnection.ConnectionString;
+
         public Subjects()
         {
             InitializeComponent();
+
+            // Real-time updating of "Active" checkbox in DataGridView
             dgvSubjects.CurrentCellDirtyStateChanged += dgvSubjects_CurrentCellDirtyStateChanged;
             dgvSubjects.CellValueChanged += dgvSubjects_CellValueChanged;
         }
@@ -26,8 +30,10 @@ namespace SQL_FINAL_Kapoy_na_
 
         private void Subjects_Load(object sender, EventArgs e)
         {
+            // Display current user’s name
             lblName.Text = $"{UserSession.FirstName} {UserSession.LastName}";
 
+            // Display profile picture (if exists)
             if (!string.IsNullOrEmpty(UserSession.ProfilePath) && File.Exists(UserSession.ProfilePath))
             {
                 picProfile.Image = new Bitmap(UserSession.ProfilePath);
@@ -36,10 +42,12 @@ namespace SQL_FINAL_Kapoy_na_
             {
                 picProfile.Image = null; 
             }
+            // Load subjects and count active ones
             LoadSubjects();
             CountSubjects();
         }
 
+        //Navigate to other forms
         private void btndashB_Click(object sender, EventArgs e)
         {
             Dashboard dashboard = new Dashboard();
@@ -82,6 +90,7 @@ namespace SQL_FINAL_Kapoy_na_
             this.Hide();
         }
 
+        //Logout and clear session
         private void button1_Click(object sender, EventArgs e)
         {
             UserSession.FirstName = null;
@@ -92,6 +101,8 @@ namespace SQL_FINAL_Kapoy_na_
             login.Show();
             this.Hide();
         }
+
+        //Load all subjects from stored procedure
         private void LoadSubjects()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -111,6 +122,8 @@ namespace SQL_FINAL_Kapoy_na_
                 }
             }
         }
+
+        //Count active subjects
         private void CountSubjects()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -122,11 +135,15 @@ namespace SQL_FINAL_Kapoy_na_
                 lblActSub.Text = $"Active Subjects: {count}";
             }
         }
+
+        //Real-time update of "Active" checkbox
         private void dgvSubjects_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             if (dgvSubjects.IsCurrentCellDirty)
                 dgvSubjects.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
+
+        //Updates the Active status of a subject when checkbox value changes
         private void dgvSubjects_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dgvSubjects.Columns[e.ColumnIndex].Name == "Active")
@@ -143,11 +160,12 @@ namespace SQL_FINAL_Kapoy_na_
                     cmd.Parameters.AddWithValue("@Active", newStatus);
                     cmd.ExecuteNonQuery();
                 }
-
+                // Refresh count of active subjects
                 CountSubjects();
             }
         }
 
+        //Search subjects 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -164,6 +182,8 @@ namespace SQL_FINAL_Kapoy_na_
             }
         }
 
+
+        //Add Subject
         private void btnadd_Click(object sender, EventArgs e)
         {
             AddSub add = new AddSub();
@@ -172,6 +192,7 @@ namespace SQL_FINAL_Kapoy_na_
             CountSubjects();
         }
 
+        //Update Subject
         private void btnupdate_Click(object sender, EventArgs e)
         {
             if (dgvSubjects.SelectedRows.Count == 0)
@@ -190,9 +211,11 @@ namespace SQL_FINAL_Kapoy_na_
             UpdateSub upd = new UpdateSub(subjectID, code, name, teacherName, studentName);
             upd.ShowDialog();
             LoadSubjects();
+            AddLog("UPDATE", $"Updated subject ID {subjectID}: {code} - {name}");
 
         }
 
+        //Delete Subject
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvSubjects.SelectedRows.Count == 0)
@@ -219,6 +242,21 @@ namespace SQL_FINAL_Kapoy_na_
                 MessageBox.Show("Subject deleted successfully!");
                 LoadSubjects();
                 CountSubjects();
+                AddLog("DELETE", $"Deleted subject ID {subjectID}");
+            }
+        }
+
+        //Log actions (Create, Update, Delete)
+        private void AddLog(string action, string desc)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand log = new SqlCommand("F_Log", con);
+                log.CommandType = CommandType.StoredProcedure;
+                log.Parameters.AddWithValue("@ActionType", action);
+                log.Parameters.AddWithValue("@Description", desc);
+                log.ExecuteNonQuery();
             }
         }
     }

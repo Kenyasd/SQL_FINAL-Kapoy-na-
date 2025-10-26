@@ -14,7 +14,7 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class Reports : Form
     {
-
+        // Database connection string
         string connectionString = DBConnection.ConnectionString;
         
         public Reports()

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,18 +15,24 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class TeacherDash : Form
     {
+        // Database connection string
         string connectionString = DBConnection.ConnectionString;
+
         public TeacherDash()
         {
             InitializeComponent();
+            
+            // Real-time updating of "Active" checkbox in DataGridView
             dgvTeachers.CurrentCellDirtyStateChanged += dgvTeachers_CurrentCellDirtyStateChanged;
             dgvTeachers.CellValueChanged += dgvTeachers_CellValueChanged;
         }
 
         private void TeacherDash_Load(object sender, EventArgs e)
         {
+            // Display current user’s name
             lblName.Text = $"{UserSession.FirstName} {UserSession.LastName}";
 
+            // Display profile picture (if exists)
             if (!string.IsNullOrEmpty(UserSession.ProfilePath) && File.Exists(UserSession.ProfilePath))
             {
                 picProfile.Image = new Bitmap(UserSession.ProfilePath);
@@ -34,9 +41,13 @@ namespace SQL_FINAL_Kapoy_na_
             {
                 picProfile.Image = null; 
             }
+            
+            // Load teachers and count active ones
             LoadTeachers();
             CountTeachers();
         }
+
+        //Load all teachers from stored procedure
         private void LoadTeachers()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -49,28 +60,24 @@ namespace SQL_FINAL_Kapoy_na_
                 da.Fill(dt);
                 dgvTeachers.DataSource = dt;
 
+                // Format DataGridView
                 dgvTeachers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvTeachers.ReadOnly = false;
                 dgvTeachers.Columns["TeacherID"].ReadOnly = true;
                 dgvTeachers.Columns["Active"].ReadOnly = false;
-                dgvTeachers.Columns["Active"].HeaderText = "Active";
-
-                //con.Open();
-                //SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Teachers ORDER BY TeacherID DESC", con);
-                //DataTable dt = new DataTable();
-                //da.Fill(dt);
-                //dgvTeachers.DataSource = dt;
-
-                //dgvTeachers.Columns["TeacherID"].ReadOnly = true;
-                //dgvTeachers.Columns["Active"].ReadOnly = false;
+                dgvTeachers.Columns["Active"].HeaderText = "Active";               
 
             }
         }
+
+        //Edit immediately when checkbox is toggled
         private void dgvTeachers_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             if (dgvTeachers.IsCurrentCellDirty)
                 dgvTeachers.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
+
+        //Checkbox value changes — update database
         private void dgvTeachers_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dgvTeachers.Columns[e.ColumnIndex].Name == "Active")
@@ -88,10 +95,13 @@ namespace SQL_FINAL_Kapoy_na_
                     cmd.ExecuteNonQuery();
                 }
 
+                // Log and refresh count
                 AddLog("UPDATE", $"Changed teacher {teacherID} active status to {newStatus}");
                 CountTeachers();
             }
         }
+
+        //Count active teachers via stored procedure
         private void CountTeachers()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -104,7 +114,7 @@ namespace SQL_FINAL_Kapoy_na_
             }
         }
 
-
+        //Navigation Buttons — switch between forms
         private void btndashB_Click(object sender, EventArgs e)
         {
             Dashboard dashboard = new Dashboard();
@@ -147,6 +157,7 @@ namespace SQL_FINAL_Kapoy_na_
             this.Hide();
         }
 
+        //Logout
         private void button1_Click(object sender, EventArgs e)
         {
             UserSession.FirstName = null;
@@ -157,7 +168,8 @@ namespace SQL_FINAL_Kapoy_na_
             login.Show();
             this.Hide();
         }
-
+        
+        //Search teachers
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -174,6 +186,7 @@ namespace SQL_FINAL_Kapoy_na_
             }
         }
 
+        //Add Teachers
         private void btnadd_Click(object sender, EventArgs e)
         {
             AddT add = new AddT();
@@ -182,6 +195,7 @@ namespace SQL_FINAL_Kapoy_na_
             CountTeachers();
         }
 
+        //Update Teachers
         private void btnupdate_Click(object sender, EventArgs e)
         {
             if (dgvTeachers.SelectedRows.Count == 0)
@@ -208,6 +222,7 @@ namespace SQL_FINAL_Kapoy_na_
             LoadTeachers(); // reload grid after editing
         }
 
+        //Delete Teachers
         private void button8_Click(object sender, EventArgs e)
         {
             if (dgvTeachers.SelectedRows.Count == 0)
@@ -237,6 +252,8 @@ namespace SQL_FINAL_Kapoy_na_
                 CountTeachers();
             }
         }
+
+        //Log actions (Create, Update, Delete)
         private void AddLog(string action, string desc)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
