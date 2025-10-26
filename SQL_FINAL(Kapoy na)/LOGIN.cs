@@ -13,15 +13,17 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class LOGIN : Form
     {
+        // Database connection String
         string connectionString = DBConnection.ConnectionString;
+        //Tracks number of failed login attempts
         int attempts = 0;
 
         public LOGIN()
         {
             InitializeComponent();
         }
-      
 
+        // Login Button
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (txtUser.Text == "" || txtPass.Text == "")
@@ -54,6 +56,7 @@ namespace SQL_FINAL_Kapoy_na_
                         UserSession.FirstName = fname;
                         UserSession.LastName = lname;
                         UserSession.ProfilePath = photoPath;
+                        AddLog("LOGIN", $"User '{fname} {lname}' successfully logged in.");
 
                         MessageBox.Show("Welcome, " + fname + "!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -81,7 +84,7 @@ namespace SQL_FINAL_Kapoy_na_
                 }
             }
         }
-
+        //Register Form
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Register register = new Register();
@@ -89,6 +92,7 @@ namespace SQL_FINAL_Kapoy_na_
             this.Hide();
         }
 
+        //Forgot Password Form
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
@@ -96,9 +100,23 @@ namespace SQL_FINAL_Kapoy_na_
             forgot.Show();
         }
 
+        //Exit Form
         private void label2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        // Add Log
+        private void AddLog(string action, string desc)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand log = new SqlCommand("F_Log", con);
+                log.CommandType = CommandType.StoredProcedure;
+                log.Parameters.AddWithValue("@ActionType", action);
+                log.Parameters.AddWithValue("@Description", desc);
+                log.ExecuteNonQuery();
+            }
         }
     }
 }
