@@ -13,13 +13,15 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class ForgotPass : Form
     {
+        // Database connection String
         string connectionString = DBConnection.ConnectionString;
 
         public ForgotPass()
         {
             InitializeComponent();
         }
-        
+
+        // Reset Password
         private void btnReset_Click(object sender, EventArgs e)
         {
             string user = txtUser.Text.Trim();
@@ -37,13 +39,12 @@ namespace SQL_FINAL_Kapoy_na_
                     con.Open();
                     SqlCommand cmd = new SqlCommand("F_ResetPass", con);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
                     // Add parameters
                     cmd.Parameters.AddWithValue("@Username", txtUser.Text);
                     cmd.Parameters.AddWithValue("@NewPassword", txtPass.Text);
-
-                    // Execute
                     cmd.ExecuteNonQuery();
+                    
+                    AddLog("UPDATE", $"Password reset for username: {user}");
 
                     MessageBox.Show("Password reset successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -58,12 +59,25 @@ namespace SQL_FINAL_Kapoy_na_
                 }
             }
         }
-
+        // Back to Login Form
         private void label2_Click(object sender, EventArgs e)
         {
             LOGIN lOGIN = new LOGIN();
             lOGIN.Show();
             this.Hide();
+        }
+        // Add Log
+        private void AddLog(string action, string desc)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand log = new SqlCommand("F_Log", con);
+                log.CommandType = CommandType.StoredProcedure;
+                log.Parameters.AddWithValue("@ActionType", action);
+                log.Parameters.AddWithValue("@Description", desc);
+                log.ExecuteNonQuery();
+            }
         }
     }
 }

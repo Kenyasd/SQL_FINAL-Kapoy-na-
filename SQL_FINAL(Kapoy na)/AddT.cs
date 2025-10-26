@@ -13,12 +13,14 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class AddT : Form
     {
+        // Database connection string
         string connectionString = DBConnection.ConnectionString;
         public AddT()
         {
             InitializeComponent();
         }
 
+        // Saved Add Teacher
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtFirstN.Text) ||
@@ -66,7 +68,10 @@ namespace SQL_FINAL_Kapoy_na_
                     MessageBox.Show("Database Error: " + ex.Message);
                 }
             }
+            AddLog("CREATE", $"Added new teacher: {txtFirstN.Text} {txtLastN.Text}");
         }
+
+        //Log function
         private void AddLog(string action, string desc)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -79,6 +84,8 @@ namespace SQL_FINAL_Kapoy_na_
                 log.ExecuteNonQuery();
             }
         }
+        
+        // Clear input fields
         private void ClearFields()
         {
             txtFirstN.Clear();
@@ -90,7 +97,8 @@ namespace SQL_FINAL_Kapoy_na_
             rdbMale.Checked = false;
             rdbFemale.Checked = false;
         }
-
+        
+        // Close form
         private void label12_Click(object sender, EventArgs e)
         {
             this.Close();

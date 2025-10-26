@@ -15,8 +15,10 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class Dashboard : Form
     {
+        // Database connection string
         string connectionString = DBConnection.ConnectionString;
 
+        //Navigate to other forms
         private void btnLogout_Click(object sender, EventArgs e)
         {
             UserSession.FirstName = null;
@@ -42,10 +44,13 @@ namespace SQL_FINAL_Kapoy_na_
             teacherDash.Show();
         }
 
+        // Load user info and charts on form load
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            // Display current user’s name
             lblName.Text = $"{UserSession.FirstName} {UserSession.LastName}";
 
+            // Display profile picture (if exists)
             if (!string.IsNullOrEmpty(UserSession.ProfilePath) && File.Exists(UserSession.ProfilePath))
             {
                 picProfile.Image = new Bitmap(UserSession.ProfilePath);
@@ -62,6 +67,7 @@ namespace SQL_FINAL_Kapoy_na_
         {
             InitializeComponent();
         }
+        // Load student chart data
         private void LoadStudentChart()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -85,6 +91,7 @@ namespace SQL_FINAL_Kapoy_na_
                 }
             }
         }
+        // Load teacher chart data
         private void LoadTeacherChart()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -109,6 +116,8 @@ namespace SQL_FINAL_Kapoy_na_
             }
         }
 
+
+        //Navigate to other forms
         private void btndashboard_Click(object sender, EventArgs e)
         {
             Dashboard dashboard = new Dashboard();

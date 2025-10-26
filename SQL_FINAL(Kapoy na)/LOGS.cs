@@ -14,6 +14,7 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class LOGS : Form
     {
+        // Database connection string
         string connectionString = DBConnection.ConnectionString;
 
         public LOGS()
@@ -21,7 +22,7 @@ namespace SQL_FINAL_Kapoy_na_
             InitializeComponent();
         }
 
-        
+        //Navigate to other forms
         private void btndashB_Click(object sender, EventArgs e)
         {
             Dashboard dashboard = new Dashboard();
@@ -75,10 +76,13 @@ namespace SQL_FINAL_Kapoy_na_
             this.Hide();
         }
 
+        // Load user info and logs on form load
         private void LOGS_Load(object sender, EventArgs e)
         {
+            // Display current user’s name
             lblName.Text = $"{UserSession.FirstName} {UserSession.LastName}";
-
+            
+            // Display profile picture (if exists)
             if (!string.IsNullOrEmpty(UserSession.ProfilePath) && File.Exists(UserSession.ProfilePath))
             {
                 picProfile.Image = new Bitmap(UserSession.ProfilePath);
@@ -89,6 +93,8 @@ namespace SQL_FINAL_Kapoy_na_
             }
             LoadLogs();
         }
+
+        // Load logs into DataGridView
         private void LoadLogs()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -109,6 +115,7 @@ namespace SQL_FINAL_Kapoy_na_
             }
         }
 
+        // Real-time search logs as user types
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection(connectionString))

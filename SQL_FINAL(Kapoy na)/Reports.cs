@@ -21,12 +21,14 @@ namespace SQL_FINAL_Kapoy_na_
         {
             InitializeComponent();
         }
-        
 
+        // Load user info and report counts on form load
         private void Reports_Load(object sender, EventArgs e)
         {
+            // Display current user’s name
             lblName.Text = $"{UserSession.FirstName} {UserSession.LastName}";
 
+            // Display profile picture (if exists)
             if (!string.IsNullOrEmpty(UserSession.ProfilePath) && File.Exists(UserSession.ProfilePath))
             {
                 picProfile.Image = new Bitmap(UserSession.ProfilePath);
@@ -35,9 +37,11 @@ namespace SQL_FINAL_Kapoy_na_
             {
                 picProfile.Image = null; // or a default picture
             }
+            // Load report counts
             LoadReportCounts();
         }
 
+        //Navigate to other forms
         private void btndashB_Click(object sender, EventArgs e)
         {
             Dashboard dashboard = new Dashboard();
@@ -80,6 +84,7 @@ namespace SQL_FINAL_Kapoy_na_
             this.Hide();
         }
 
+        // Logout and return to login form
         private void button1_Click(object sender, EventArgs e)
         {
             UserSession.FirstName = null;
@@ -90,6 +95,8 @@ namespace SQL_FINAL_Kapoy_na_
             login.Show();
             this.Hide();
         }
+
+        // Get count from stored procedure
         private int GetCount(string procedure)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -100,6 +107,7 @@ namespace SQL_FINAL_Kapoy_na_
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
+        // Get grouped count from stored procedure
         private string GetGroupedCount(string procedure)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -109,11 +117,11 @@ namespace SQL_FINAL_Kapoy_na_
 
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-
-               
                 return dt.Rows.Count.ToString();
             }
         }
+
+        // Load all report counts into labels
         private void LoadReportCounts()
         {
             lblActStud.Text = GetCount("F_CountActiveStudents").ToString();

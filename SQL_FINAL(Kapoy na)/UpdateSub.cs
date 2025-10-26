@@ -14,11 +14,13 @@ namespace SQL_FINAL_Kapoy_na_
     public partial class UpdateSub : Form
     {
         int subjectID;
+        // Database connection string
         string connectionString = DBConnection.ConnectionString;
 
         public UpdateSub(int id, string code, string name, string teacherName, string studentName)
         {
             InitializeComponent();
+            // Preload values into textboxes and comboboxes
             subjectID = id;          
             txtSubCode.Text = code;
             txtSubName.Text = name;
@@ -28,6 +30,7 @@ namespace SQL_FINAL_Kapoy_na_
             LoadStudents();
 
         }
+        // Load teachers into combobox
         private void LoadTeachers()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -44,6 +47,7 @@ namespace SQL_FINAL_Kapoy_na_
             }
         }
 
+        // Load students into combobox
         private void LoadStudents()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -59,6 +63,8 @@ namespace SQL_FINAL_Kapoy_na_
                 cmbStudents.DataSource = dt;
             }
         }
+
+        // Log actions 
         private void AddLog(string action, string desc)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -72,6 +78,7 @@ namespace SQL_FINAL_Kapoy_na_
             }
         }
 
+        // Save updated subject details
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtSubCode.Text) || string.IsNullOrEmpty(txtSubName.Text))
@@ -124,6 +131,7 @@ namespace SQL_FINAL_Kapoy_na_
             }
         }
 
+        // Close the form
         private void label12_Click(object sender, EventArgs e)
         {
             this.Close();

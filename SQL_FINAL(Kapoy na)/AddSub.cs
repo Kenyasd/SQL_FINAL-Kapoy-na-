@@ -13,15 +13,18 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class AddSub : Form
     {
+        // Connection string
         string connectionString = DBConnection.ConnectionString;
         
         public AddSub()
         {
             InitializeComponent();
+            // Load Teachers and Students into ComboBoxes
             LoadTeachers();
             LoadStudents();
         }
-       
+
+        //Load Teachers into ComboBox
         private void LoadTeachers()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -38,6 +41,7 @@ namespace SQL_FINAL_Kapoy_na_
             }
         }
 
+        //Load Students into ComboBox
         private void LoadStudents()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -53,6 +57,8 @@ namespace SQL_FINAL_Kapoy_na_
                 cmbStudent.DataSource = dt;
             }
         }
+
+        // Log action to database
         private void AddLog(string action, string desc)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -66,6 +72,8 @@ namespace SQL_FINAL_Kapoy_na_
             }
         }
 
+
+        // Save new subject
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtSubCode.Text) || string.IsNullOrEmpty(txtSubName.Text))
@@ -97,7 +105,7 @@ namespace SQL_FINAL_Kapoy_na_
                 this.Close();
             }
         }
-
+        // Back label click event
         private void lblBack_Click(object sender, EventArgs e)
         {
             this.Close();

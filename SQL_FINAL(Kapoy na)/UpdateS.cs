@@ -14,21 +14,26 @@ namespace SQL_FINAL_Kapoy_na_
     
     public partial class UpdateS : Form
     {
+        // Database connection string
         string connectionString = DBConnection.ConnectionString;
         int studentID;
+
+        //Constructor receives the student ID from the Student Dashboard
         public UpdateS(int id)
         {
             InitializeComponent();
             studentID = id;
         }
-     
+
+      
         private void UpdateS_Load(object sender, EventArgs e) 
-        { 
-       
+        {
+            // Load student data into form fields
             LoadStudentData();
 
         }
 
+        // Load student data from database
         private void LoadStudentData()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -60,6 +65,8 @@ namespace SQL_FINAL_Kapoy_na_
 
             }
         }
+
+        // Save updated student data to database
         private void btnSave_Click(object sender, EventArgs e)
         {
             string gender = rdbMale.Checked ? "Male" : (rdbFemale.Checked ? "Female" : "");
@@ -92,6 +99,7 @@ namespace SQL_FINAL_Kapoy_na_
             this.Close();
         }
 
+        // Navigate back to Student Dashboard
         private void lblBack_Click(object sender, EventArgs e)
         {
             StudentDash studentDash = new StudentDash();
