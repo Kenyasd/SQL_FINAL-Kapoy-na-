@@ -14,11 +14,14 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class Reports : Form
     {
+
+        string connectionString = DBConnection.ConnectionString;
+        
         public Reports()
         {
             InitializeComponent();
         }
-        string connectionString = @"Data Source=DESKTOP-IBHAJPM\SQLEXPRESS;Initial Catalog=FINAL_DB;Integrated Security=True";
+        
 
         private void Reports_Load(object sender, EventArgs e)
         {

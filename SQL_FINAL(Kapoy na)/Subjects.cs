@@ -14,6 +14,7 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class Subjects : Form
     {
+        string connectionString = DBConnection.ConnectionString;
         public Subjects()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace SQL_FINAL_Kapoy_na_
             dgvSubjects.CellValueChanged += dgvSubjects_CellValueChanged;
         }
 
-        string connectionString = @"Data Source=DESKTOP-IBHAJPM\SQLEXPRESS;Initial Catalog=FINAL_DB;Integrated Security=True";
+       
 
         private void Subjects_Load(object sender, EventArgs e)
         {

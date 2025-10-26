@@ -14,12 +14,12 @@ namespace SQL_FINAL_Kapoy_na_
     public partial class Register : Form
     {
         string selectedImagePath = "";
+        string connectionString = DBConnection.ConnectionString;
         public Register()
         {
             InitializeComponent();
         }
-        string connectionString = @"Data Source=DESKTOP-IBHAJPM\SQLEXPRESS;Initial Catalog=FINAL_DB;Integrated Security=True";
-
+        
         private void btnregister_Click(object sender, EventArgs e)
         {
             if (txtFirstN.Text == "" || txtLastN.Text == "" || txtUser.Text == "" || txtPass.Text == "")

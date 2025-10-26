@@ -13,12 +13,13 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class ForgotPass : Form
     {
+        string connectionString = DBConnection.ConnectionString;
+
         public ForgotPass()
         {
             InitializeComponent();
         }
-        string connectionString = @"Data Source=DESKTOP-IBHAJPM\SQLEXPRESS;Initial Catalog=FINAL_DB;Integrated Security=True";
-
+        
         private void btnReset_Click(object sender, EventArgs e)
         {
             string user = txtUser.Text.Trim();

@@ -14,12 +14,14 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class LOGS : Form
     {
+        string connectionString = DBConnection.ConnectionString;
+
         public LOGS()
         {
             InitializeComponent();
         }
 
-        string connectionString = @"Data Source=DESKTOP-IBHAJPM\SQLEXPRESS;Initial Catalog=FINAL_DB;Integrated Security=True";
+        
         private void btndashB_Click(object sender, EventArgs e)
         {
             Dashboard dashboard = new Dashboard();

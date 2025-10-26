@@ -14,13 +14,13 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class StudentDash : Form
     {
+        string connectionString = DBConnection.ConnectionString;
+
         public StudentDash()
         {
             InitializeComponent();
             dgvStudents.CurrentCellDirtyStateChanged += dgvStudents_CurrentCellDirtyStateChanged;
-        }      
-
-        string connectionString = @"Data Source=DESKTOP-IBHAJPM\SQLEXPRESS;Initial Catalog=FINAL_DB;Integrated Security=True";
+        }         
 
         private void StudentDash_Load(object sender, EventArgs e)
         {

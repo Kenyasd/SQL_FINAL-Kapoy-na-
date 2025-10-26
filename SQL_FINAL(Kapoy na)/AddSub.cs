@@ -13,14 +13,15 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class AddSub : Form
     {
+        string connectionString = DBConnection.ConnectionString;
+        
         public AddSub()
         {
             InitializeComponent();
             LoadTeachers();
             LoadStudents();
         }
-        string connectionString = @"Data Source=DESKTOP-IBHAJPM\SQLEXPRESS;Initial Catalog=FINAL_DB;Integrated Security=True";
-
+       
         private void LoadTeachers()
         {
             using (SqlConnection con = new SqlConnection(connectionString))

@@ -13,14 +13,14 @@ namespace SQL_FINAL_Kapoy_na_
 {
     public partial class LOGIN : Form
     {
+        string connectionString = DBConnection.ConnectionString;
         int attempts = 0;
+
         public LOGIN()
         {
             InitializeComponent();
         }
-
-        string connectionString = @"Data Source = DESKTOP-IBHAJPM\SQLEXPRESS;
-                Initial Catalog=FINAL_DB; Integrated Security=true";
+      
 
         private void btnLogin_Click(object sender, EventArgs e)
         {

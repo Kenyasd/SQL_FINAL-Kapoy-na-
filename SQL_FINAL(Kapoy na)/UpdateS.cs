@@ -14,7 +14,7 @@ namespace SQL_FINAL_Kapoy_na_
     
     public partial class UpdateS : Form
     {
-        string connectionString = @"Data Source=DESKTOP-IBHAJPM\SQLEXPRESS;Initial Catalog=FINAL_DB;Integrated Security=True";
+        string connectionString = DBConnection.ConnectionString;
         int studentID;
         public UpdateS(int id)
         {

@@ -65,6 +65,7 @@
     <Compile Include="AddT.Designer.cs">
       <DependentUpon>AddT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Connect.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
