@@ -94,7 +94,7 @@ namespace SQL_FINAL_Kapoy_na_
                     cmd.Parameters.AddWithValue("@Active", newStatus);
                     cmd.ExecuteNonQuery();
                 }
-
+                    
                 // Log and refresh count
                 AddLog("UPDATE", $"Changed teacher {teacherID} active status to {newStatus}");
                 CountTeachers();

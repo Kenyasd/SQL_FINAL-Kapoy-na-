@@ -124,8 +124,8 @@ namespace SQL_FINAL_Kapoy_na_
         // Load all report counts into labels
         private void LoadReportCounts()
         {
-            lblActStud.Text = GetCount("F_CountActiveStudents").ToString();
-            lblActTeach.Text = GetCount("F_CountActiveTeachers").ToString();
+            lblActStud.Text = GetCount("F_CountActiveS").ToString();
+            lblActTeach.Text = GetCount("F_CountActiveT").ToString();
             lblActSub.Text = GetCount("F_CountActiveSubjects").ToString();
 
             lblStudPerSub.Text = GetGroupedCount("F_CountStudentsPerSubject");
