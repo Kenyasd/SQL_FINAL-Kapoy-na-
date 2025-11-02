@@ -107,6 +107,26 @@ namespace SQL_FINAL_Kapoy_na_
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
+        private int GetCount1(string procedure)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("F_CountActT", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+        private int GetCount2(string procedure)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("F_CountActSubjects", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
         // Get grouped count from stored procedure
         private string GetGroupedCount(string procedure)
         {
@@ -121,12 +141,24 @@ namespace SQL_FINAL_Kapoy_na_
             }
         }
 
+        private string GetGroupedCount1(string procedure)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlDataAdapter da = new SqlDataAdapter(procedure, con);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt.Rows.Count.ToString();
+            }
+        }
         // Load all report counts into labels
         private void LoadReportCounts()
         {
             lblActStud.Text = GetCount("F_CountActiveS").ToString();
-            lblActTeach.Text = GetCount("F_CountActiveT").ToString();
-            lblActSub.Text = GetCount("F_CountActiveSubjects").ToString();
+            lblActTeach.Text = GetCount1("F_CountActiveT").ToString();
+            lblActSub.Text = GetCount2("F_CountActiveSubjects").ToString();
 
             lblStudPerSub.Text = GetGroupedCount("F_CountStudentsPerSubject");
             lblStudPerTeach.Text = GetGroupedCount("F_CountStudentsPerTeacher");
